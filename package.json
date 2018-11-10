@@ -1,0 +1,16 @@
+{
+  "name": "geoffrey",
+  "version": "1.0.0",
+  "description": "A lightweight and flexible tool set to build awesome web platform.",
+  "main": "geoffrey.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Axiacore/geoffrey"
+  },
+  "author": "Axiacore",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Axiacore/geoffrey/issues"
+  },
+  "homepage": "https://github.com/Axiacore/geoffrey#readme",
+}
