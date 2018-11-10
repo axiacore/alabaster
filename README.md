@@ -1,8 +1,8 @@
-# geoffrey
+# Alabaster
 
 ## A lightweight and flexible tool set to build awesome web platform.
 
-Geoffrey is a sass tool sets develop to build awesome web site faster and easy. It's build especially on how we develop the frontend in Axiacore.
+alabaster is a sass tool sets develop to build awesome web site faster and easy. It's build especially on how we develop the frontend in Axiacore.
 
 ## What you would find
 
@@ -13,15 +13,15 @@ You are going to find some helpers so you can write smooth Sass.
 ## Installing using yarn
 
 ```bash
-yarn add geoffrey
+yarn add alabaster
 ```
 
 ## Usage
 
-Call the file `geoffrey.sass` in the file that compile your Sass and be sure you call it before the Sass's files you use to build your web.
+Call the file `alabaster.sass` in the file that compile your Sass and be sure you call it before the Sass's files you use to build your web.
 
 ```sass
-@import "route-to-file/geoffrey.sass"
+@import "route-to-file/alabaster.sass"
 @import "header"
 ```
 
@@ -43,12 +43,12 @@ $column-gap* | 11.5px | Gutter between the columns of a grid.
 
 *This variable only works if [Bulma](https://bulma.io/) is used it to build the grids
 
-You can change the varibles default value, by calling them before you call the geoffrey.sass file and add !default to the end of the line.
+You can change the varibles default value, by calling them before you call the `alabaster.sass` file and add !default to the end of the line.
 
 ```sass
 $ratio: 1.333 !default
 
-@import "route-to-file/geoffrey.sass"
+@import "route-to-file/alabaster.sass"
 @import "header"
 ```
 
