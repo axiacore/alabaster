@@ -1,0 +1,25 @@
+/// Used to add space between elements to a single property
+/// from the modular scale and keep vertical rhythm.
+/// One return tha value in px and tha other in rem.
+
+/// @param {Number} $values - Shorthand values
+/// @param {Number} $breakpoint - Breakpoint value
+
+@function dms-px($number, $breakpoint: 0)
+    $width: 0
+    @if $breakpoint == $tablet
+        $width: $number * $leading-tablet
+    @else
+       $width: $number * $leading
+
+    @return #{ $width + 'px' }
+
+
+@function dms-rem($number, $breakpoint: 0)
+    $width: 0
+    @if $breakpoint == $tablet
+        $width: $number * $line-height-tablet
+    @else
+       $width: $number * $line-height
+
+    @return #{ $width + 'rem' }

@@ -1,0 +1,13 @@
+/// For setting the positions in elements.
+/// Use null in values no skip a edge of the box.
+
+/// Require the _organized-shorthand functions from utilities
+
+@mixin position($position, $values)
+    $values: _organized-shorthand($values)
+    $attributes: (top: nth($values, 1), right: nth($values, 2), bottom: nth($values, 3), left: nth($values, 4),)
+
+    position: $position
+    @each $attribute, $value in $attributes
+        @if($value)
+            #{$attribute}: $value
