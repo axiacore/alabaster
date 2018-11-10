@@ -1,8 +1,8 @@
 {
   "name": "alabaster",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A lightweight and flexible tool set to build awesome web platform.",
-  "main": "geoffrey.js",
+  "main": "alabaster.sass",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Axiacore/alabaster"
