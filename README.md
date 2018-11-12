@@ -28,7 +28,7 @@ Call the file `alabaster.sass` in the file that compile your Sass and be sure yo
 ### Variables
 
 Name | Default | Description
------- | ---- | ------- | -----------
+------ | ------- | -----------
 $base-font-size | 100 | Font size for mobile in %
 $base-font-size-tablet | 112.5 | Font size for tablet and above in %
 $line-height | 1.45 | Line height fonts for mobile
