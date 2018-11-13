@@ -1,28 +1,28 @@
 .columns
-    margin-left: 0
-    margin-right: 0
-    margin-top: 0
+  margin-left: 0
+  margin-right: 0
+  margin-top: 0
 
-    &.is-gapless-padding
-        &> .column
-            padding: 0
+  &.is-gapless-padding
+    &> .column
+      padding: 0
 
-        &:last-child
-            margin-bottom: 0
+    &:last-child
+      margin-bottom: 0
 
 .column
-    &.is-offset-0-tablet
-        @include media-query($tablet)
-            margin-left: 0
+  &.is-offset-0-tablet
+    @include breakpoint($tablet)
+      margin-left: 0
 
-    &.is-offset-0-desktop
-        @include media-query($desktop)
-            margin-left: 0
+  &.is-offset-0-desktop
+    @include breakpoint($desktop)
+      margin-left: 0
 
-    &.is-offset-0-widescreen
-        @include media-query($widescreen)
-            margin-left: 0
+  &.is-offset-0-widescreen
+    @include breakpoint($widescreen)
+      margin-left: 0
 
-    &.is-offset-0-fullhd
-        @include media-query($fullhd)
-            margin-left: 0
+  &.is-offset-0-fullhd
+    @include breakpoint($fullhd)
+      margin-left: 0

@@ -6,20 +6,20 @@
 /// @param {Number} $breakpoint - Breakpoint value
 
 @function dms-px($number, $breakpoint: 0)
-    $width: 0
-    @if $breakpoint == $tablet
-        $width: $number * $leading-tablet
-    @else
-       $width: $number * $leading
+  $width: 0
+  @if $breakpoint == $tablet
+    $width: $number * $leading-tablet
+  @else
+    $width: $number * $leading
 
-    @return #{ $width + 'px' }
+  @return #{ $width + 'px' }
 
 
 @function dms-rem($number, $breakpoint: 0)
-    $width: 0
-    @if $breakpoint == $tablet
-        $width: $number * $line-height-tablet
-    @else
-       $width: $number * $line-height
+  $width: 0
+  @if $breakpoint == $tablet
+    $width: $number * $line-height-tablet
+  @else
+    $width: $number * $line-height
 
-    @return #{ $width + 'rem' }
+  @return #{ $width + 'rem' }

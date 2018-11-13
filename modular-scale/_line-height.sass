@@ -3,9 +3,9 @@
 /// @param {Number} $breakpoint - Breakpoint
 
 @mixin line-height($number, $breakpoint: 0)
-    @if $breakpoint == $tablet
-        line-height: #{ $number * $leading-tablet + 'px'}
-        line-height: #{ $number * $line-height-tablet + 'rem'}
-    @else
-        line-height: #{ $number * $leading + 'px'}
-        line-height: #{ $number * $line-height + 'rem'}
+  @if $breakpoint == $tablet
+    line-height: #{ $number * $leading-tablet + 'px'}
+    line-height: #{ $number * $line-height-tablet + 'rem'}
+  @else
+    line-height: #{ $number * $leading + 'px'}
+    line-height: #{ $number * $line-height + 'rem'}

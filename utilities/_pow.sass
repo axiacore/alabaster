@@ -3,13 +3,13 @@
 /// @param {Number} $exponent - Exponent number
 
 @function _pow($number, $exponent)
-    $value: 1
+  $value: 1
 
-    @if $exponent > 0
-        @for $i from 1 through $exponent
-            $value: $value * $number //Multiply by $number if exponent less than zero
-    @else if $exponent < 0
-        @for $i from 1 through -$exponent
-            $value: $value / $number //Divide by $number if exponent less than zero
+  @if $exponent > 0
+    @for $i from 1 through $exponent
+      $value: $value * $number //Multiply by $number if exponent less than zero
+  @else if $exponent < 0
+    @for $i from 1 through -$exponent
+      $value: $value / $number //Divide by $number if exponent less than zero
 
-    @return $value
+  @return $value
