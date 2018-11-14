@@ -6,5 +6,5 @@
 /// Require the _pow functions from utilities
 
 @function ms($value, $ms-ratio: $ratio, $ms-base: $base)
-  $size: _pow($ms-ratio, $value) * ($ms-base / 16)
+  $size: _pow($ms-ratio, $value) * ($ms-base / $base)
   @return #{ $size + "rem" }
