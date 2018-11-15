@@ -1,0 +1,104 @@
+[type='color'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='email'],
+[type='month'],
+[type='number'],
+[type='password'],
+[type='search'],
+[type='tel'],
+[type='text'],
+[type='time'],
+[type='url'],
+[type='week'],
+select,
+input:not([type]) // sass-lint:disable-line force-pseudo-nesting
+  @include prefix(appearance, none, webkit moz)
+  background-color: $inputs-background-color
+  border: 1px solid $inputs-border-color
+  border-radius: $inputs-border-radius
+  color: $inputs-color-text
+  display: block
+  font-size: 16px
+  font-weight: 400
+  height: $inputs-heigth
+  margin: 0
+  outline: none
+  padding: 0 $inputs-sides-padding
+  width: 100%
+
+  &:hover:not([disabled]):not([readonly]) // sass-lint:disable-line force-pseudo-nesting
+    border-color: $input-hover-color
+
+  &:focus:not([disabled]):not([readonly]) // sass-lint:disable-line force-pseudo-nesting
+    border-color: $input-focus-color
+
+  &[disabled]
+    cursor: not-allowed
+    opacity: .5
+
+  &[readonly]
+    background-color: $inputs-readonly-background-color
+    cursor: not-allowed
+
+select
+  padding-right: $inputs-heigth
+
+  &[multiple]
+    height: auto
+    padding: 0
+
+    option
+      padding: .5em
+
+.select
+  position: relative
+
+  &::after
+    @include position(absolute, 50% #{ $inputs-heigth / 2 } null null)
+    @include size(10px)
+    border-color: $select-arrow-color
+    border-style: solid
+    border-width: 0 2px 2px 0
+    content: ''
+    display: block
+    transform: translateY(-50%) rotate(45deg)
+    transform-origin: bottom right
+
+  &_disabled,
+  &_readonly
+    &::after
+      opacity: .5
+
+  &_is-multiple
+    &::after
+      display: none
+
+.field
+  margin-bottom: dms-rem(1)
+
+  @include breakpoint($tablet)
+    margin-bottom: dms-rem(1, $tablet)
+
+  &__label
+    display: block
+    margin-bottom: 5px
+
+  &__help-text
+    color: $field-help-text-color
+    margin-top: 5px
+
+  label
+    &.error
+      color: $field-error-color-text
+      display: block
+      margin-top: 5px
+
+  .errorlist
+    color: $field-error-color-text
+    list-style: none
+    padding: 0
+
+    li
+      margin-top: 5px
