@@ -1,0 +1,51 @@
+.btn,
+.btn-outline
+  align-items: center
+  background-color: transparent
+  border: 1px solid transparent
+  border-radius: $btn-border-radius
+  color: $gray-primary
+  cursor: pointer
+  display: inline-flex
+  font-weight: 700
+  height: $btn-mobile-height
+  justify-content: center
+  padding: 0 $btn-sides-padding
+  transition: background-color .4s ease-in-out, border-color .4s ease-in-out, color .4s ease-in-out
+  width: auto
+
+  @include breakpoint($tablet)
+    height: $btn-tablet-height
+
+  &_disabled,
+  &:disabled
+    cursor: not-allowed
+    opacity: .5
+
+  &_disabled
+    pointer-events: none
+
+  &_is-full-width
+    display: flex
+    width: 100%
+
+  &_lg
+    height: $btn-lg-height
+    padding: 0 #{ $btn-sides-padding * 2 }
+
+  &_sm
+    height: $btn-sm-height
+
+.btn
+  background-color: $btn-color
+  color: $btn-text-color
+
+  &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
+    background-color: $btn-color-hover
+
+.btn-outline
+  border-color: $btn-color
+  color: $btn-text-color
+
+  &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
+    border-color: $btn-color-hover
