@@ -1,0 +1,14 @@
+.container
+  margin: 0 auto
+  padding: 0 $column-gap
+  width: 100%
+
+  @include breakpoint($tablet)
+    max-width: #{ $container-max-width + ($column-gap * 2) }
+    padding: 0 $column-gap
+
+  &_sm
+    max-width: #{ $container-sm-max-width + ($column-gap * 2) }
+
+  &_xs
+    max-width: #{ $container-xs-max-width + ($column-gap * 2) }
