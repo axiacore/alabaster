@@ -17,6 +17,10 @@
   @include breakpoint($tablet)
     height: $btn-tablet-height
 
+  &__svg
+    @include size($icon-btn-svg-default-size)
+    transition: fill .4s ease-in-out
+
   &_disabled,
   &:disabled
     cursor: not-allowed
@@ -33,8 +37,25 @@
     height: $btn-lg-height
     padding: 0 #{ $btn-sides-padding * 2 }
 
+    &.btn_icon
+      @include size($icon-btn-lg-size)
+
+      .btn__svg
+        @include size($icon-btn-svg-lg-size)
+
   &_sm
     height: $btn-sm-height
+
+    &.btn_icon
+      @include size($icon-btn-sm-size)
+
+      .btn__svg
+        @include size($icon-btn-svg-sm-size)
+
+  &_icon
+    @include size($icon-btn-default-size)
+    border-radius: $icon-btn-border-radius
+    padding: 0
 
 .btn
   background-color: $btn-color
@@ -43,9 +64,18 @@
   &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
     background-color: $btn-color-hover
 
+  &__svg
+    fill: $white
+
 .btn-outline
   border-color: $btn-color
   color: $btn-text-color
 
   &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
     border-color: $btn-color-hover
+
+    .btn-outline__svg
+      fill: $btn-color-hover
+
+  &__svg
+    fill: $btn-text-color
