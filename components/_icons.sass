@@ -1,0 +1,25 @@
+.icon
+  @include size($icon-default-size)
+  align-items: center
+  background-color: $black
+  border-radius: $icon-border-radius
+  display: inline-flex
+  justify-items: center
+
+  &__svg
+    @include size($icon-svg-default-size)
+    display: block
+    fill: $white
+    margin: auto
+
+  &_lg
+    @include size($icon-lg-size)
+
+    .icon__svg
+      @include size($icon-svg-lg-size)
+
+  &_sm
+    @include size($icon-sm-size)
+
+    .icon__svg
+      @include size($icon-svg-sm-size)
