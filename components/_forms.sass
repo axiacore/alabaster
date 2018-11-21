@@ -115,3 +115,11 @@ select
 
   &_no-margin
     margin-bottom: 0
+
+  &__inline-submit
+    position: relative
+
+    .field__btn,
+    .field__btn-outline
+      @include position(absolute, 50% 5px null null)
+      transform: translateY(-50%)

@@ -35,6 +35,10 @@
     display: flex
     width: 100%
 
+  &_shadow
+    $shadow-color: rgba($black, .3)
+    box-shadow: 0 10px 20px -8px $shadow-color
+
   &_lg
     height: $btn-lg-height
     padding: 0 #{ $btn-sides-padding * 2 }
@@ -80,6 +84,7 @@
     fill: $white
 
 .btn-outline
+  background-color: $white
   border-color: $btn-color
   color: $btn-text-color
 
@@ -91,3 +96,9 @@
 
   &__svg
     fill: $btn-text-color
+
+  &_transparent
+    background-color: transparent
+
+  &_no-border
+    border: 0
