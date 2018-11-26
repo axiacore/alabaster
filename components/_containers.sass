@@ -6,8 +6,15 @@
   @include breakpoint($tablet)
     max-width: #{ $container-max-width + ($column-gap * 2) }
 
+  &_xs
+    max-width: #{ $container-xs-max-width + ($column-gap * 2) }
+
   &_sm
     max-width: #{ $container-sm-max-width + ($column-gap * 2) }
 
-  &_xs
-    max-width: #{ $container-xs-max-width + ($column-gap * 2) }
+.wrapper-container
+  background-color: $wrapper-background-color
+  box-shadow: $wrapper-container-shadow
+  margin: 0 auto
+  max-width: $wrapper-container-max-width
+  width: 100%
