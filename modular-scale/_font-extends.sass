@@ -1,0 +1,12 @@
+// Used to calculate the font size from a ratio
+// @param {Number} $font-size - Scale position number
+// @param {String} $direction - n if font size position is negative - p if font size position is positive
+// @param {String} $extend-name - Used it when you have multi font style with different font-size or line-height
+
+// Require $breakpoints-extends map from variables
+
+@mixin font-extends($font-size, $direction, $extend-name: null)
+  @each $key, $value in $breakpoints-extends
+    @include breakpoint($value)
+      %f-#{$key}-#{$direction}-#{$font-size}#{$extend-name}
+        @content
