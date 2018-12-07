@@ -1,9 +1,9 @@
-/// Used to calculate the font size from a ratio
-/// @param {Number} $value - Scale position
-/// @param {Number} $ms-ratio - Ratio to grow and decrese
-/// @param {Number} $ms-base - Font size base
+// Used to calculate the font size from a ratio
+// @param {Number} $value - Scale position
+// @param {Number} $ms-ratio - Ratio to grow and decrese
+// @param {Number} $ms-base - Font size base
 
-/// Require the _pow functions from utilities
+// Require the _pow functions from utilities
 
 @function ms($value, $ms-ratio: $ratio, $ms-base: $base)
   $size: _pow($ms-ratio, $value) * ($ms-base / $base)

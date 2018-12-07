@@ -1,25 +1,36 @@
-/// Used to add space between elements to a single property
-/// from the modular scale and keep vertical rhythm.
-/// One return tha value in px and tha other in rem.
+// Used to add distance, from the modular scale and keep the vertical rhythm between elements.
+// It works for single properties and shorthand properties
+// One return tha value in px and the other in rem.
 
-/// @param {Number} $values - Shorthand values
-/// @param {Number} $breakpoint - Breakpoint value
+// @param {Number} $values - Single or shorthand values
+// @param {Number} $breakpoint - Breakpoint value
 
-@function dms-px($number, $breakpoint: 0)
-  $width: 0
+@function dms-px($values, $breakpoint: 0)
+  $inner-leading: 0
+
   @if $breakpoint == $tablet
-    $width: $number * $leading-tablet
+    $inner-leading: $leading-tablet
   @else
-    $width: $number * $leading
+    $inner-leading: $leading
 
-  @return #{ $width + 'px' }
+  @for $i from 1 through length($values)
+    $value: nth($values, $i)
+    @if type-of($value) == 'number'
+      $values: set-nth($values, $i, #{ $value * $inner-leading + 'px' })
 
+  @return $values
 
-@function dms-rem($number, $breakpoint: 0)
-  $width: 0
+@function dms-rem($values, $breakpoint: 0)
+  $inner-leading: 0
+
   @if $breakpoint == $tablet
-    $width: $number * $line-height-tablet
+    $inner-leading: $line-height-tablet
   @else
-    $width: $number * $line-height
+    $inner-leading: $line-height
 
-  @return #{ $width + 'rem' }
+  @for $i from 1 through length($values)
+    $value: nth($values, $i)
+    @if type-of($value) == 'number'
+      $values: set-nth($values, $i, #{ $value * $inner-leading + 'rem' })
+
+  @return $values
