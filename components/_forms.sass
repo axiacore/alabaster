@@ -161,7 +161,8 @@ select
   transition: border .4s $ease-in-out
 
   &:hover:not([disabled]):not([readonly]) // sass-lint:disable-line force-pseudo-nesting
-    border-color: $input-hover-color
+    background-color: $input-background-hover-color
+    border-color: $input-border-hover-color
 
   &__icon
     @include size(18px)
