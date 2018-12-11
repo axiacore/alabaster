@@ -30,10 +30,12 @@ input:not([type]) // sass-lint:disable-line force-pseudo-nesting
   width: 100%
 
   &:hover:not([disabled]):not([readonly]) // sass-lint:disable-line force-pseudo-nesting
-    border-color: $input-hover-color
+    background-color: $input-background-hover-color
+    border-color: $input-border-hover-color
 
   &:focus:not([disabled]):not([readonly]) // sass-lint:disable-line force-pseudo-nesting
-    border-color: $input-focus-color
+    background-color: $input-background-focus-color
+    border-color: $input-border-focus-color
 
   &[disabled]
     cursor: not-allowed
