@@ -1,0 +1,74 @@
+// Sets Grid System
+
+.row
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -#{$column-gap}
+
+  @include breakpoint($tablet)
+    margin: 0 -#{$column-gap-tablet}
+
+  &:first-child
+    margin-top: -#{$column-gap}
+
+    @include breakpoint($tablet)
+      margin-top: -#{$column-gap-tablet}
+
+  &:last-child
+    margin-bottom: -#{$column-gap}
+
+    @include breakpoint($tablet)
+      margin-bottom: -#{$column-gap-tablet}
+
+  &.no-gap
+    margin: 0
+
+    > .col
+      padding: 0
+
+  &.no-gap-x
+    margin-left: 0
+    margin-right: 0
+
+    > .col
+      padding-left: 0
+      padding-right: 0
+
+  &.no-gap-y
+    margin-bottom: 0
+    margin-top: 0
+
+    > .col
+      padding-bottom: 0
+      padding-top: 0
+
+.col
+  display: block
+  flex-basis: auto
+  flex-grow: 1
+  flex-shrink: 1
+  padding: $column-gap
+  width: 100%
+
+  @include breakpoint($tablet)
+    padding: $column-gap-tablet
+
+  @for $i from 0 through $column-number
+    &-#{$i}
+      flex: none
+      width: #{$column-fraction * $i}
+
+  @for $i from 0 through $column-number - 1
+    &.offset-#{$i}
+      margin-left: #{$column-fraction * $i}
+
+  @each $key, $value in $columns-breakpoints-extends
+    @include breakpoint($value)
+      @for $i from 1 through $column-number
+        &-#{$i}-#{$key}
+          flex: none
+          width: #{$column-fraction * $i}
+
+      @for $i from 0 through $column-number - 1
+        &.offset-#{$i}-#{$key}
+          margin-left: #{$column-fraction * $i}
