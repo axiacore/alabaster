@@ -124,14 +124,23 @@ select
     flex-shrink: 1
 
     &:first-child
-      padding-right: #{$column-gap / 2}
+      padding-right: $half-gutter
+
+      @include breakpoint($tablet)
+        padding-right: $half-gutter-tablet
 
     &:last-child
-      padding-left: #{$column-gap / 2}
+      padding-left: $half-gutter
+
+      @include breakpoint($tablet)
+        padding-left: $half-gutter-tablet
 
     &_sm
       flex: none
-      width: calc(85px + #{$column-gap / 2})
+      width: calc(85px + #{$half-gutter})
+
+      @include breakpoint($tablet)
+        width: calc(85px + #{$half-gutter-tablet})
 
   &_no-margin
     margin-bottom: 0

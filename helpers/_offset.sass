@@ -1,7 +1,8 @@
 // Used to push and element a especific
 // number of columns
-
 // @param {Number} $number - # column
 
+// Require the _column-size functions from utilities
+
 @function offset($number)
-  @return #{ $number * $column-width }
+  @return _column-size($number)

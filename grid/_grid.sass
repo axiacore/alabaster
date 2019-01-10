@@ -1,74 +1,120 @@
-// Sets Grid System
-
-.row
-  display: flex
-  flex-wrap: wrap
-  margin: 0 -#{$column-gap}
+.columns
+  margin: 0 -#{$half-gutter}
 
   @include breakpoint($tablet)
-    margin: 0 -#{$column-gap-tablet}
+    display: flex
+    margin: 0 -#{$half-gutter-tablet}
 
-  &:first-child
-    margin-top: -#{$column-gap}
-
-    @include breakpoint($tablet)
-      margin-top: -#{$column-gap-tablet}
-
-  &:last-child
-    margin-bottom: -#{$column-gap}
+  &:first-child:not(.columns_no-gutter):not(.columns_no-gutter-y) // sass-lint:disable-line force-pseudo-nesting
+    margin-top: -#{$half-gutter}
 
     @include breakpoint($tablet)
-      margin-bottom: -#{$column-gap-tablet}
+      margin-top: -#{$half-gutter-tablet}
 
-  &.no-gap
+  &:last-child:not(.columns_no-gutter):not(.columns_no-gutter-y) // sass-lint:disable-line force-pseudo-nesting
+    margin-bottom: -#{$half-gutter}
+
+    @include breakpoint($tablet)
+      margin-bottom: -#{$half-gutter-tablet}
+
+  &_no-gutter
     margin: 0
 
     > .col
       padding: 0
 
-  &.no-gap-x
-    margin-left: 0
-    margin-right: 0
+    &-x
+      margin-left: 0
+      margin-right: 0
 
-    > .col
-      padding-left: 0
-      padding-right: 0
+      > .col
+        padding-left: 0
+        padding-right: 0
 
-  &.no-gap-y
-    margin-bottom: 0
-    margin-top: 0
+    &-y
+      margin-bottom: 0
+      margin-top: 0
 
-    > .col
-      padding-bottom: 0
-      padding-top: 0
+      > .col
+        padding-bottom: 0
+        padding-top: 0
+
+  &_mobile
+    display: flex
+
+    &-xl
+      @include breakpoint($mobile)
+        display: flex
+
+  &_multiline
+    flex-wrap: wrap
+
+  &_align-items-center
+    align-items: center
+
+  &_align-items-end
+    align-items: flex-end
+
+  &_show-grid
+    background: repeating-linear-gradient(to right, transparent, transparent $half-gutter, $grid-background-color $half-gutter, $grid-background-color calc(#{$column-width} - #{$half-gutter}), transparent calc(#{$column-width} - #{$half-gutter}), transparent #{$column-width})
+
+    @include breakpoint($tablet)
+      background: repeating-linear-gradient(to right, transparent, transparent $half-gutter-tablet, $grid-background-color $half-gutter-tablet, $grid-background-color calc(#{$column-width} - #{$half-gutter-tablet}), transparent calc(#{$column-width} - #{$half-gutter-tablet}), transparent #{$column-width})
+
+    &.columns_no-gutter
+      background: repeating-linear-gradient(to right, $grid-background-color 0, $grid-background-color calc(#{$column-width} - 1px), transparent calc(#{$column-width} - 1px), transparent #{$column-width})
 
 .col
   display: block
   flex-basis: auto
   flex-grow: 1
   flex-shrink: 1
-  padding: $column-gap
-  width: 100%
+  padding: $half-gutter
+
+  @for $i from 1 through $columns-number
+    .columns_mobile > &_#{$i}
+      flex: none
+      width: _column-size($i)
+
+  @for $j from 0 through $columns-number - 1
+    .columns_mobile > &_offset-#{$j}
+      margin-left: _column-size($j)
+
+  @include breakpoint($mobile)
+    @for $i from 1 through $columns-number
+      .columns_mobile-xl > &_#{$i},
+      .columns_mobile > &_#{$i}-mobile
+        flex: none
+        width: _column-size($i)
+
+    @for $j from 0 through $columns-number - 1
+      .columns_mobile-xl > &_offset-#{$j},
+      .columns_mobile > &_offset-#{$j}-mobile
+        margin-left: _column-size($j)
 
   @include breakpoint($tablet)
-    padding: $column-gap-tablet
+    padding: $half-gutter-tablet
 
-  @for $i from 0 through $column-number
-    &-#{$i}
-      flex: none
-      width: #{$column-fraction * $i}
+    @for $i from 1 through $columns-number
+      &_#{$i}
+        flex: none
+        width: _column-size($i)
 
-  @for $i from 0 through $column-number - 1
-    &.offset-#{$i}
-      margin-left: #{$column-fraction * $i}
+    @for $j from 0 through $columns-number - 1
+      &_offset-#{$j}
+        margin-left: _column-size($j)
 
-  @each $key, $value in $columns-breakpoints-extends
+  @each $key, $value in $breakpoints-extends
     @include breakpoint($value)
-      @for $i from 1 through $column-number
-        &-#{$i}-#{$key}
+      @for $i from 1 through $columns-number
+        .columns > &_#{$i}-#{$key}
           flex: none
-          width: #{$column-fraction * $i}
+          width: _column-size($i)
 
-      @for $i from 0 through $column-number - 1
-        &.offset-#{$i}-#{$key}
-          margin-left: #{$column-fraction * $i}
+      @for $j from 0 through $columns-number - 1
+        .columns > &_offset-#{$j}-#{$key}
+          margin-left: _column-size($j)
+
+
+  &_narrow
+    flex: none
