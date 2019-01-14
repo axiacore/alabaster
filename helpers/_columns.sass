@@ -1,7 +1,8 @@
 // Used to give and element the width
 // of a specific number of columns
-
 // @param {Number} $number - # column
 
-@function column-distance($number)
-  @return #{ $number * $column-width }
+// Require the _column-size functions from utilities
+
+@function column-width($number)
+  @return _column-size($number)

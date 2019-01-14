@@ -5,7 +5,7 @@
 @mixin line-height($number, $breakpoint: 0)
   @if $breakpoint == $tablet
     line-height: #{ $number * $leading-tablet + 'px'}
-    line-height: #{ $number * $line-height-tablet + 'rem'}
+    line-height: #{ $number * $line-height-tablet + 'rem'} // sass-lint:disable-line no-duplicate-properties
   @else
     line-height: #{ $number * $leading + 'px'}
-    line-height: #{ $number * $line-height + 'rem'}
+    line-height: #{ $number * $line-height + 'rem'} // sass-lint:disable-line no-duplicate-properties
