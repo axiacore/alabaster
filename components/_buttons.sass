@@ -1,10 +1,9 @@
-.btn,
-.btn-outline
+.btn
   align-items: center
-  background-color: transparent
+  background-color: $black
   border: 1px solid transparent
   border-radius: $btn-border-radius
-  color: $gray-primary
+  color: $white
   cursor: pointer
   display: inline-flex
   font-weight: 700
@@ -13,15 +12,26 @@
   padding: 0 $btn-sides-padding
   text-decoration: none
   transition: background-color .4s ease-in-out, border-color .4s ease-in-out, color .4s ease-in-out
+  vertical-align: top
   width: auto
 
   @include breakpoint($tablet)
     height: $btn-tablet-height
 
+  &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
+    background-color: lighten($black, 40%)
+
   &__svg
     @include size($btn-icon-size)
+    fill: $white
+    flex-shrink: 0
     margin-right: .35em
     transition: fill .4s ease-in-out
+
+    &_right
+      margin-left: .35em
+      margin-right: 0
+      order: 2
 
   &_disabled,
   &:disabled
@@ -39,75 +49,57 @@
     $shadow-color: rgba($black, .3)
     box-shadow: 0 10px 20px -8px $shadow-color
 
-  &_lg
-    height: $btn-lg-height
-    padding: 0 #{ $btn-sides-padding * 2 }
-
-    &.btn_icon,
-    &.btn-outline_icon
-      @include size($icon-btn-lg-size)
-
-      .btn__svg,
-      .btn-outline__svg
-
-        @include size($icon-btn-svg-lg-size)
+  &_no-border
+    border: 0
 
   &_sm
     height: $btn-sm-height
 
-    &.btn_icon,
-    &.btn-outline_icon
+    &.btn_icon
       @include size($icon-btn-sm-size)
 
-      .btn__svg,
-      .btn-outline__svg
+      .btn__svg
         @include size($icon-btn-svg-sm-size)
+
+  &_lg
+    height: $btn-lg-height
+    padding: 0 #{ $btn-sides-padding * 2 }
+
+    &.btn_icon
+      @include size($icon-btn-lg-size)
+
+      .btn__svg
+        @include size($icon-btn-svg-lg-size)
 
   &_icon
     @include size($icon-btn-default-size)
     border-radius: $icon-btn-border-radius
     padding: 0
 
-    .btn__svg,
-    .btn-outline__svg
+    .btn__svg
       @include size($icon-btn-svg-default-size)
-      margin-right: 0
+      margin: 0
 
-.btn
-  background-color: $btn-color
-  color: $btn-text-color
-
-  &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
-    background-color: $btn-color-hover
-
-  &__svg
-    fill: $white
-
-.btn-outline
-  background-color: $white
-  border-color: $btn-color
-  color: $btn-text-color
-
-  &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
-    border-color: $btn-color-hover
-
-    .btn-outline__svg
-      fill: $btn-color-hover
-
-  &__svg
-    fill: $btn-text-color
-
-  &_transparent
+  &_outline
     background-color: transparent
+    border-color: $black
+    color: $black
 
-  &_no-border
-    border: 0
+    &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
+      background-color: $black
+      color: $white
+
+      .btn__svg
+        fill: $white
+
+    .btn__svg
+      fill: $black
 
 .link
   background-color: transparent
   border: 0
   cursor: pointer
-  font-weight: 500
+  font-weight: 400
   padding: 0
   text-decoration: underline
-  transition: color .4 ease-in-out
+  transition: color .4s ease-in-out
