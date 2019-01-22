@@ -2,6 +2,7 @@
   @include size($icon-default-size)
   align-items: center
   background-color: $black
+  border: 1px solid transparent
   border-radius: $icon-border-radius
   display: inline-flex
   justify-items: center
@@ -23,3 +24,10 @@
 
     .icon__svg
       @include size($icon-svg-sm-size)
+
+  &_outline
+    background-color: transparent
+    border-color: $black
+
+    .icon__svg
+      fill: $black
