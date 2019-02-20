@@ -1,0 +1,46 @@
+$number-spinner-height: 40px !default
+$number-spinner-width: 94px !default
+
+.number-spinner
+  @include size(94px, $number-spinner-height)
+  background-color: $white
+  border: 1px solid $black
+  border-radius: 20px
+  color: $osk-green-secondary
+  display: flex
+  min-width: 94px
+  overflow: hidden
+  width: $number-spinner-width
+
+  &__input
+    @include size(calc(100% - 70px), 100%)
+    background-color: transparent
+    border: 0
+    font-size: 14px
+    font-weight: 500
+    line-height: 1em
+    padding: 0
+    text-align: center
+
+    &:focus
+      background-color: transparent
+
+    &[readonly]
+      cursor: default
+      opacity: 1
+
+  &__btn
+    @include size(35px, 100%)
+    align-items: center
+    background-color: transparent
+    border: 0
+    cursor: pointer
+    display: flex
+    font-weight: 500
+    justify-content: center
+    text-align: center
+    text-decoration: none
+
+  &__svg
+    @include size(60%)
+    fill: $black
