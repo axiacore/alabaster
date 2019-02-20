@@ -1,0 +1,71 @@
+$toggle-width: 80px !default
+$toggle-padding: 5px !default
+$toggle-border: 1px !default
+$toggle-circle-size: 30px !default
+$toggle-height: $toggle-circle-size + (($toggle-padding + $toggle-border) * 2) !default
+$toggle-border-radius: $toggle-height / 2 !default
+
+.field-toggle
+  @include size($toggle-width, $toggle-height)
+  display: block
+  margin-bottom: 20px
+  position: relative
+
+  &__input
+    max-height: 0
+    max-width: 0
+    opacity: 0
+    position: absolute
+
+    &:checked + .field-toggle__container
+      // sass-lint:disable-block nesting-depth
+      &::before
+        color: $black
+
+      &::after
+        color: $white
+
+      .field-toggle__circle
+        $inner-toggle-width: $toggle-width - (($toggle-padding + $toggle-border) * 2)
+        transform: translateX(#{ (($inner-toggle-width - $toggle-circle-size) / $toggle-circle-size) * 100%})
+
+  &__container
+    @include size(100%)
+    background-color: $white
+    border: $toggle-border solid $white
+    border-radius: $toggle-border-radius
+    display: block
+    padding: $toggle-padding
+    position: relative
+    transition: border-color .25s ease-in-out
+
+    &_text
+      // sass-lint:disable-block nesting-depth
+      &::before,
+      &::after
+        @include position(absolute, 50% null null null)
+        font-size: 10px
+        font-weight: 500
+        line-height: 1em
+        text-align: center
+        text-transform: uppercase
+        transform: translateY(-50%)
+        transition: color .25s ease-in-out
+        width: $toggle-circle-size
+
+      &::before
+        color: $white
+        content: 'NO'
+        left: $toggle-padding
+
+      &::after
+        color: $black
+        content: 'SI'
+        right: $toggle-padding
+
+  &__circle
+    @include size($toggle-circle-size)
+    background-color: $black
+    border-radius: 50%
+    display: block
+    transition: transform .25s ease-in-out, background-color .25s ease-in-out
