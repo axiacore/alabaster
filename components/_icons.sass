@@ -7,23 +7,47 @@
   display: inline-flex
   justify-items: center
 
+  @include breakpoint($tablet)
+    @include size($icon-default-tablet-size)
+
+
   &__svg
     @include size($icon-svg-default-size)
     display: block
     fill: $white
     margin: auto
 
+    @include breakpoint($tablet)
+      @include size($icon-svg-default-tablet-size)
+
+
   &_lg
     @include size($icon-lg-size)
+
+    @include breakpoint($tablet)
+      @include size($icon-lg-tablet-size)
+
 
     .icon__svg
       @include size($icon-svg-lg-size)
 
+      @include breakpoint($tablet)
+        @include size($icon-svg-lg-tablet-size)
+
+
   &_sm
     @include size($icon-sm-size)
 
+    @include breakpoint($tablet)
+      @include size($icon-sm-tablet-size)
+
+
     .icon__svg
       @include size($icon-svg-sm-size)
+
+      @include breakpoint($tablet)
+        @include size($icon-svg-sm-tablet-size)
+
 
   &_outline
     background-color: transparent

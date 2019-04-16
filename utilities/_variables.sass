@@ -47,33 +47,50 @@ $desktop-lg:    1400px !default
 $breakpoints-extends: (tablet: $tablet, desktop: $desktop, desktop-md: $desktop-md, desktop-lg: $desktop-lg) !default
 
 // Buttons
-$btn-mobile-height: 30px !default
+$btn-height: 30px !default
 $btn-tablet-height: 40px !default
+
 $btn-sm-height: 30px !default
+$btn-sm-tablet-height: $btn-sm-height !default
+
 $btn-lg-height: 50px !default
+$btn-lg-tablet-height: $btn-lg-height !default
 
 $btn-sides-padding: 12px !default
 $btn-border-radius: 0 !default
+
 $btn-icon-size: 24px !default
+$btn-icon-tablet-size: $btn-icon-size !default
 
 $icon-btn-default-size: 34px !default
+$icon-btn-default-tablet-size: $icon-btn-default-size !default
+
 $icon-btn-svg-default-size: 30px !default
+$icon-btn-svg-default-tablet-size: $icon-btn-svg-default-size !default
 
 $icon-btn-sm-size: 24px !default
+$icon-btn-sm-tablet-size: $icon-btn-sm-size !default
+
 $icon-btn-svg-sm-size: 20px !default
+$icon-btn-svg-sm-tablet-size: $icon-btn-svg-sm-size !default
 
 $icon-btn-lg-size: 44px !default
+$icon-btn-lg-tablet-size: $icon-btn-lg-size !default
+
 $icon-btn-svg-lg-size: 40px !default
+$icon-btn-svg-lg-tablet-size: $icon-btn-svg-lg-size !default
 
 $icon-btn-border-radius: 50% !default
 
 // Forms
 $text-inputs-list: ('[type="color"]', '[type="date"]', '[type="datetime"]', '[type="datetime-local"]', '[type="email"]', '[type="month"]', '[type="number"]', '[type="password"]', '[type="search"]', '[type="tel"]', '[type="text"]', '[type="time"]', '[type="url"]', '[type="week"]', 'input:not([type])', 'select', 'textarea') !default
 
-$inputs-heigth: 40px !default
+$inputs-height: 40px !default
+$inputs-tablet-height: $inputs-height !default
 $inputs-sides-padding: 12px !default
 
 $textarea-height: 120px !default
+$textarea-tablet-height: $textarea-height !default
 $textarea-padding: 12px !default
 
 $inputs-background-color: $white !default
@@ -96,12 +113,25 @@ $field-error-color-text: #f00 !default
 
 // Icons
 $icon-default-size: 50px !default
+$icon-default-tablet-size: $icon-default-size !default
+
 $icon-svg-default-size: 35px !default
+$icon-svg-default-tablet-size: $icon-svg-default-size !default
 
 $icon-sm-size: 40px !default
+$icon-sm-tablet-size: $icon-sm-size !default
+
 $icon-svg-sm-size: 25px !default
+$icon-svg-sm-tablet-size: $icon-svg-sm-size !default
 
 $icon-lg-size: 90px !default
+$icon-lg-tablet-size: $icon-lg-size !default
+
 $icon-svg-lg-size: 50px !default
+$icon-svg-lg-tablet-size: $icon-svg-lg-size !default
 
 $icon-border-radius: 50% !default
+
+// CSS Transition
+$css-ease: ease-in-out !default
+$css-time: .4s !default

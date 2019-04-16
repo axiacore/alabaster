@@ -7,11 +7,11 @@
   cursor: pointer
   display: inline-flex
   font-weight: 700
-  height: $btn-mobile-height
+  height: $btn-height
   justify-content: center
   padding: 0 $btn-sides-padding
   text-decoration: none
-  transition: background-color .4s ease-in-out, border-color .4s ease-in-out, color .4s ease-in-out
+  transition: background-color $css-time $css-ease, border-color $css-time $css-ease, color $css-time $css-ease
   vertical-align: top
   width: auto
 
@@ -26,7 +26,11 @@
     fill: $white
     flex-shrink: 0
     margin-right: .35em
-    transition: fill .4s ease-in-out
+    transition: fill $css-time $css-ease
+
+    @include breakpoint($tablet)
+      @include size($btn-icon-tablet-size)
+
 
     &_right
       margin-left: .35em
@@ -55,30 +59,60 @@
   &_sm
     height: $btn-sm-height
 
+    @include breakpoint($tablet)
+      height: $btn-sm-tablet-height
+
     &.btn_icon
       @include size($icon-btn-sm-size)
 
+      @include breakpoint($tablet)
+        @include size($icon-btn-sm-tablet-size)
+
+
       .btn__svg
         @include size($icon-btn-svg-sm-size)
+
+        @include breakpoint($tablet)
+          @include size($icon-btn-svg-sm-tablet-size)
+
 
   &_lg
     height: $btn-lg-height
     padding: 0 #{ $btn-sides-padding * 2 }
 
+    @include breakpoint($tablet)
+      height: $btn-lg-tablet-height
+
     &.btn_icon
       @include size($icon-btn-lg-size)
 
+      @include breakpoint($tablet)
+        @include size($icon-btn-lg-tablet-size)
+
+
       .btn__svg
         @include size($icon-btn-svg-lg-size)
+
+        @include breakpoint($tablet)
+          @include size($icon-btn-svg-lg-tablet-size)
+
 
   &_icon
     @include size($icon-btn-default-size)
     border-radius: $icon-btn-border-radius
     padding: 0
 
+    @include breakpoint($tablet)
+      @include size($icon-btn-default-tablet-size)
+
+
     .btn__svg
       @include size($icon-btn-svg-default-size)
       margin: 0
+
+      @include breakpoint($tablet)
+        @include size($icon-btn-svg-default-tablet-size)
+
 
   &_outline
     background-color: transparent
@@ -102,4 +136,4 @@
   font-weight: 400
   padding: 0
   text-decoration: underline
-  transition: color .4s ease-in-out
+  transition: color $css-time $css-ease
