@@ -36,7 +36,7 @@ $toggle-border-radius: $toggle-height / 2 !default
     display: block
     padding: $toggle-padding
     position: relative
-    transition: border-color .25s ease-in-out
+    transition: border-color ($css-time / 2) $css-ease
 
     &_text
       // sass-lint:disable-block nesting-depth
@@ -49,7 +49,7 @@ $toggle-border-radius: $toggle-height / 2 !default
         text-align: center
         text-transform: uppercase
         transform: translateY(-50%)
-        transition: color .25s ease-in-out
+        transition: color ($css-time / 2) $css-ease
         width: $toggle-circle-size
 
       &::before
@@ -67,4 +67,4 @@ $toggle-border-radius: $toggle-height / 2 !default
     background-color: $black
     border-radius: 50%
     display: block
-    transition: transform .25s ease-in-out, background-color .25s ease-in-out
+    transition: transform ($css-time / 2) $css-ease, background-color ($css-time / 2) $css-ease

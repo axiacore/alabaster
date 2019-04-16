@@ -1,13 +1,16 @@
 #{$text-inputs-list},
 .file-field
-  @include size(100%, $inputs-heigth)
+  @include size(100%, $inputs-height)
   background-color: $inputs-background-color
   border: 1px solid $inputs-border-color
   border-radius: $inputs-border-radius
   color: $inputs-color-text
   font-size: 16px
   font-weight: 400
-  transition: border .4s ease-in-out, background-color .4s ease-in-out
+  transition: border $css-time $css-ease, background-color $css-time $css-ease
+
+  @include breakpoint($tablet)
+    height: $inputs-tablet-height
 
 #{$text-inputs-list}
   @include prefix(appearance, none, webkit moz)
@@ -37,8 +40,11 @@ textarea
   padding: $textarea-padding
   resize: none
 
+  @include breakpoint($tablet)
+    height: $textarea-tablet-height
+
 select
-  padding-right: $inputs-heigth
+  padding-right: $inputs-height
 
   &[multiple]
     height: auto
@@ -54,7 +60,7 @@ select
   position: relative
 
   &::after
-    @include position(absolute, 50% #{ $inputs-heigth / 2 } null null)
+    @include position(absolute, 50% #{ $inputs-height / 2 } null null)
     @include size(10px)
     border-color: $select-arrow-color
     border-style: solid
@@ -169,7 +175,7 @@ select
     &:checked + .radio-field__icon
       border-color: $black
 
-      &::after
+      &::after // sass-lint:disable-line nesting-depth
         opacity: 1
 
   &__icon
@@ -207,9 +213,12 @@ select
     border: 1px solid $inputs-border-color
     border-radius: $inputs-border-radius
     display: flex
-    height: $inputs-heigth
+    height: $inputs-height
     padding: 0 $inputs-sides-padding
-    transition: border .4s ease-in-out
+    transition: border $css-time $css-ease
+
+    @include breakpoint($tablet)
+      height: $inputs-tablet-height
 
     &.check-field_readonly,
     &.radio-field_readonly
@@ -279,7 +288,7 @@ select
     height: 100%
     margin-left: $inputs-sides-padding
     padding: 0 $inputs-sides-padding
-    transition: border .4s ease-in-out
+    transition: border $css-time $css-ease
 
   &:hover:not(.file-field_disabled):not(.file-field_readonly) // sass-lint:disable-line force-pseudo-nesting
     background-color: $input-background-hover-color
