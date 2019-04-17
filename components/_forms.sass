@@ -19,6 +19,9 @@
   outline: none
   padding: 0 $inputs-sides-padding
 
+  @include breakpoint($tablet)
+    padding: 0 $inputs-sides-tablet-padding
+
   &:hover:not([disabled]):not([readonly]) // sass-lint:disable-line force-pseudo-nesting
     background-color: $input-background-hover-color
     border-color: $input-border-hover-color
@@ -42,6 +45,7 @@ textarea
 
   @include breakpoint($tablet)
     height: $textarea-tablet-height
+    padding: $textarea-tablet-padding
 
 select
   padding-right: $inputs-height
@@ -219,6 +223,7 @@ select
 
     @include breakpoint($tablet)
       height: $inputs-tablet-height
+      padding: 0 $inputs-sides-tablet-padding
 
     &.check-field_readonly,
     &.radio-field_readonly
@@ -265,6 +270,9 @@ select
   padding-left: $inputs-sides-padding
   position: relative
 
+  @include breakpoint($tablet)
+    padding-left: $inputs-sides-tablet-padding
+
   &__input
     @include position(absolute, 50% null null 0)
     opacity: 0
@@ -289,6 +297,10 @@ select
     margin-left: $inputs-sides-padding
     padding: 0 $inputs-sides-padding
     transition: border $css-time $css-ease
+
+    @include breakpoint($tablet)
+      margin-left: $inputs-sides-tablet-padding
+      padding: 0 $inputs-sides-tablet-padding
 
   &:hover:not(.file-field_disabled):not(.file-field_readonly) // sass-lint:disable-line force-pseudo-nesting
     background-color: $input-background-hover-color
