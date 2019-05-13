@@ -2,42 +2,6 @@
 // It works for single properties and shorthand properties
 // One return tha value in px and the other in rem.
 // @param {Number} $values - Single or shorthand values
-// @param {Number} $breakpoint - Breakpoint value
-
-@function dms-px($values, $breakpoint: 0)
-  $inner-leading: 0
-
-  @if $breakpoint == $tablet
-    $inner-leading: $leading-tablet
-  @else
-    $inner-leading: $leading
-
-  @for $i from 1 through length($values)
-    $value: nth($values, $i)
-    @if type-of($value) == 'number'
-      $values: set-nth($values, $i, #{ $value * $inner-leading + 'px' })
-
-  @return $values
-
-@function dms-rem($values, $breakpoint: 0)
-  $inner-leading: 0
-
-  @if $breakpoint == $tablet
-    $inner-leading: $line-height-tablet
-  @else
-    $inner-leading: $line-height
-
-  @for $i from 1 through length($values)
-    $value: nth($values, $i)
-    @if type-of($value) == 'number'
-      $values: set-nth($values, $i, #{ $value * $inner-leading + 'rem' })
-
-  @return $values
-
-// Used to add distance, from the modular scale and keep the vertical rhythm between elements.
-// It works for single properties and shorthand properties
-// One return tha value in px and the other in rem.
-// @param {Number} $values - Single or shorthand values
 // @param {Number} $ms-leading - The factor to multiply the $values
 
 // Require the _ms-values-convertion functions from utilities
