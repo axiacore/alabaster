@@ -94,7 +94,8 @@
       @include breakpoint($tablet)
         background: repeating-linear-gradient(to right, transparent, transparent $half-gutter-tablet, $grid-background-color $half-gutter-tablet, $grid-background-color calc(#{$column-width} - #{$half-gutter-tablet}), transparent calc(#{$column-width} - #{$half-gutter-tablet}), transparent #{$column-width})
 
-    &.columns_no-gutter
+    &.columns_no-gutter,
+    &.columns_no-gutter-x
       background: repeating-linear-gradient(to right, $grid-background-color 0, $grid-background-color calc(#{$column-width} - 1px), transparent calc(#{$column-width} - 1px), transparent #{$column-width})
 
 .col
