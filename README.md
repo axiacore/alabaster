@@ -405,6 +405,17 @@ General form control:
 		<div class="field__help-text"></div>
 	</div>
 
+##### Modifiers
+
+`.field_no-margin` Remove the margin bottom.
+
+	 <div class="field field_no-margin">
+		<label class="field__label">Label<label>
+		<input name="input">
+	</div>
+
+#### Select
+
 For `<select>` tag is necessary add a container with class `.select`
 
     <div class="field">
@@ -417,12 +428,160 @@ For `<select>` tag is necessary add a container with class `.select`
 
 ##### Modifiers
 
-`.field_no-margin` Remove the margin bottom.
+`.select_disabled` Select disabled style.
 
-	 <div class="field field_no-margin">
-		<label class="field__label">Label<label>
-		<input name="input">
+	 <div class="select select_disabled">
+		 <select name="select" disabled>...</select>
+	 </div>
+
+`.select_readonly` Select readonly style.
+
+	 <div class="select select_readonly">
+		 <select name="select" readonly>...</select>
+	 </div>
+
+`.select_is-multiple` Select multiple style.
+
+	 <div class="select select_is-multiple">
+		 <select name="select" multiple>...</select>
+	 </div>
+
+#### Checkbox and Radio button
+
+For `<input type="checkbox">` and `<input type="radio">` is necessary the next structure:
+
+	<label class="check-field">
+		<input class="check-field__input" type="checkbox">
+		<span class="check-field__icon"></span>
+		<span class="check-field__label">Text label</span>
+	</label>
+	<label class="radio-field">
+		<input class="radio-field__input" type="radio">
+		<span class="radio-field__icon"></span>
+		<span class="radio-field__label">Text label</span>
+	</label>
+
+##### Modifiers
+
+`.check-field_icon-right` `.radio-field_icon-right` Changes the icon to the right.
+
+	<label class="check-field check-field_icon-right">
+		<input class="check-field__input" type="checkbox">
+		<span class="check-field__icon"></span>
+		<span class="check-field__label">Text label</span>
+	</label>
+	<label class="radio-field radio-field_icon-right">
+		<input class="radio-field__input" type="radio">
+		<span class="radio-field__icon"></span>
+		<span class="radio-field__label">Text label</span>
+	</label>
+
+`.check-field_box` `.radio-field_box` Mixed style between general input and checkbox or radio button input.
+
+	<label class="check-field check-field_box">
+		<input class="check-field__input" type="checkbox">
+		<span class="check-field__icon"></span>
+		<span class="check-field__label">Text label</span>
+	</label>
+	<label class="radio-field radio-field_box">
+		<input class="radio-field__input" type="radio">
+		<span class="radio-field__icon"></span>
+		<span class="radio-field__label">Text label</span>
+	</label>
+
+`.check-field_disabled` `.radio-field_disabled` Input disabled style.
+
+	<label class="check-field check-field_disabled">
+		<input class="check-field__input" type="checkbox" disabled>
+		<span class="check-field__icon"></span>
+		<span class="check-field__label">Text label</span>
+	</label>
+	<label class="radio-field radio-field_disabled">
+		<input class="radio-field__input" type="radio" disabled>
+		<span class="radio-field__icon"></span>
+		<span class="radio-field__label">Text label</span>
+	</label>
+
+`.check-field_readonly` `.radio-field_readonly` Input readonly style.
+
+	<label class="check-field check-field_readonly">
+		<input class="check-field__input" type="checkbox" readonly>
+		<span class="check-field__icon"></span>
+		<span class="check-field__label">Text label</span>
+	</label>
+	<label class="radio-field radio-field_readonly">
+		<input class="radio-field__input" type="radio" readonly>
+		<span class="radio-field__icon"></span>
+		<span class="radio-field__label">Text label</span>
+	</label>
+
+#### Number spinner
+
+For create a number spinner input import the file `number-spinner.sass` in the file that compile your Sass and be sure you call it after the `alabaster.sass` file and before the Sass's files you use to build your web.
+
+```sass
+@import 'route-to-file/alabaster/alabaster'
+@import 'route-to-file/alabaster/components/number-spinner'
+@import 'header'
+```
+
+##### Variables
+
+Name | Default | Description
+------ | ------- | -----------
+$number-spinner-height | 40px | Height of the number spinner
+$number-spinner-width | 94px | Width of the number spinner
+
+**Example:**
+
+	<div class="number-spinner">
+		<button class="number-spinner__btn">
+			<svg class="number-spinner__svg">minus icon</svg>
+		</button>
+		<input class="number-spinner__input" type="number">
+		<button class="number-spinner__btn">
+			<svg class="number-spinner__svg">plus icon</svg>
+		</button>
 	</div>
+
+#### Toggle
+
+For create a toggle input import the file `toggle.sass` in the file that compile your Sass and be sure you call it after the `alabaster.sass` file and before the Sass's files you use to build your web.
+
+```sass
+@import 'route-to-file/alabaster/alabaster'
+@import 'route-to-file/alabaster/components/toggle'
+@import 'header'
+```
+
+##### Variables
+
+Name | Default | Description
+------ | ------- | -----------
+$toggle-width | 80px | Width of the toggle
+$toggle-padding | 5px | Padding of the toggle
+$toggle-border | 1px | Border width of the toggle
+$toggle-circle-size | 30px | Size of the status circle
+
+**Example:**
+
+	<label class="field-toggle">
+		<input class="field-toggle__input" type="checkbox">
+		<span class="field-toggle__container">
+			<span class="field-toggle__circle"></span>
+		</span>
+	</label>
+
+##### Modifiers
+
+`.field-toggle__container_text` Adds text YES and NO to the toggle.
+
+    <label class="field-toggle">
+		<input class="field-toggle__input" type="checkbox">
+		<span class="field-toggle__container field-toggle__container_text">
+			<span class="field-toggle__circle"></span>
+		</span>
+	</label>
 
 ### Icons
 
@@ -478,34 +637,215 @@ Alabaster include somes helpers to make easy sass.
 
 ### Position
 
-Mixin with 2 params:
-1. Position: css position
-2. Values: top right bottom left, css units or null for skip.
+Provides a method for setting an element's positioning properties: position, top, right, bottom and left. Use a null value to skip an edge of the box.
 
 **Example:**
 
-Add element position = absolute, top = 10px, left = 10px
-
 ```sass
 .element
-	@include position(absolute, 10px null null 10px)
+	@include position(absolute, 10px null null 1rem)
 ```
 
 ### Size
 
-Mixin with 2 params:
-1. Width: css units
-2. Height: css units
-
-In case of width and height are equals, just pass first param.
+Sets the width and height of the element.
 
 **Example:**
 
-Add element with width = 100px and height = 100px
+```sass
+.element
+	@include size(100px, 2em)
+```
+
+### Clearfix
+
+Provides a way to include a clearfix for containing floats.
+
+**Example:**
 
 ```sass
 .element
-	@include size(100px)
+	@include clearfix
 ```
+
+### Font smooth
+
+Provides a way to controls the application of anti-aliasing when fonts are rendered.
+
+**Example:**
+
+```sass
+.element
+	@include font-smooth
+```
+
+### Prefixer
+
+Generates vendor prefixes.
+
+##### Arguments
+
+Name | Type | Description
+------ | ------- | -----------
+$property | string  | Property to prefix
+$value | string  | Value to use
+$prefixes | list | Vendor prefixes to output
+
+**Example:**
+
+```sass
+.element
+	@include prefix(appearance, none, webkit moz)
+```
+
+### Column width
+
+Provides a way to get the size of a column in percentage.
+
+**Example:**
+
+```sass
+.element
+	@include column-width(2)
+```
+
+### Column offset
+
+Provides a way to get the offset of a column in percentage.
+
+**Example:**
+
+```sass
+.element
+	@include column-offset(2)
+```
+
+## Classes
+
+Alabaster include some classes to help easily the construction of html.
+
+### Fit image
+
+The `.fit-image` class add the property object fit = cover to `<img>` tag.
+
+**Example:**
+
+	<figure>
+		<img class="fit-image" src="image.jpg" alt="image">
+	</figure>
+
+### Off screen
+
+The `.off-screen` class hides elements in the screen.
+
+**Example:**
+
+	<section>
+		<h1 class="off-screen">Section title</h1>
+		<div>...</div>
+	</section>
+
+### Text align
+
+The `.text-center` and `.text-right` classes changes the text align.
+
+**Example:**
+
+	<div>
+		<p class="text-center">Some text aligned to the center</p>
+		<p class="text-right">Some text aligned to the right</p>
+	</div>
+
+### Flex
+
+Alabaster offers some classes to create grid flex easily.
+
+The `.flex` class define a container with flex display.
+
+**Example:**
+
+	<div class="flex">
+		...
+	</div>
+
+The `.column-flex` class change the direction from row to column.
+
+**Example:**
+
+	<div class="flex column-flex">
+		...
+	</div>
+
+The `.no-wrap-flex` class change the wrap property from wrap to nowrap.
+
+**Example:**
+
+	<div class="flex no-wrap-flex">
+		...
+	</div>
+
+The `.justify-content-space-between` class apply justify content = space between.
+
+**Example:**
+
+	<div class="flex justify-content-space-between">
+		...
+	</div>
+
+The `.justify-content-space-around` class apply justify content = space around.
+
+**Example:**
+
+	<div class="flex justify-content-space-around">
+		...
+	</div>
+
+The `.justify-content-flex-start` class apply justify content = flex start.
+
+**Example:**
+
+	<div class="flex justify-content-flex-start">
+		...
+	</div>
+
+The `.justify-content-center` class apply justify content = center.
+
+**Example:**
+
+	<div class="flex justify-content-center">
+		...
+	</div>
+
+The `.justify-content-flex-end` class apply justify content = flex end.
+
+**Example:**
+
+	<div class="flex justify-content-flex-end">
+		...
+	</div>
+
+The `.align-items-flex-start` class apply align items = flex start.
+
+**Example:**
+
+	<div class="flex align-items-flex-start">
+		...
+	</div>
+
+The `.align-items-center` class apply align items = center.
+
+**Example:**
+
+	<div class="flex align-items-center">
+		...
+	</div>
+
+The `.align-items-flex-end` class apply align items = flex end.
+
+**Example:**
+
+	<div class="flex align-items-flex-end">
+		...
+	</div>
 
 Brought to you by the lovely folks at [Axiacore](https://axiacore.com/)
