@@ -1,0 +1,39 @@
+select
+  padding-right: $inputs-height
+
+  @include breakpoint($tablet)
+    padding-right: $inputs-tablet-height
+
+  &[multiple]
+    height: auto
+    padding: 0
+
+    option
+      padding: .5em
+
+  &::-ms-expand // sass-lint:disable-line no-vendor-prefixes
+    display: none
+
+.select
+  position: relative
+
+  &::after
+    @include position(absolute, 50% #{ $inputs-height / 2 } null null)
+    @include size(10px)
+    border-color: $select-arrow-color
+    border-style: solid
+    border-width: 0 2px 2px 0
+    content: ''
+    display: block
+    pointer-events: none
+    transform: translateY(-50%) rotate(45deg)
+    transform-origin: bottom right
+
+  &_disabled,
+  &_readonly
+    &::after
+      opacity: .5
+
+  &_is-multiple
+    &::after
+      display: none
