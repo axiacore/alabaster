@@ -126,18 +126,22 @@ The `.container` class is used to center content horizontally.
 Name | Default | Description
 ------ | ------- | -----------
 $container-max-width | 1230px | Max width of the container in px
-$container-sm-max-width | 570px | Max width of the small container in px
 $container-xs-max-width | 370px | Max width of the extra small container in px
+$container-sm-max-width | 570px | Max width of the small container in px
+$container-md-max-width | 870px | Max width of the medium container in px
 
 **Example:**
 
     <div class="container">
     	...
     </div>
+	<div class="container container_xs">
+    	...
+    </div>
 	<div class="container container_sm">
     	...
     </div>
-	<div class="container container_xs">
+	<div class="container container_md">
     	...
     </div>
 
@@ -448,7 +452,15 @@ For `<select>` tag is necessary add a container with class `.select`
 
 #### Checkbox and Radio button
 
-For `<input type="checkbox">` and `<input type="radio">` is necessary the next structure:
+For create a checkbox or radio input import the file `check-radio.sass` in the file that compile your Sass and be sure you call it after the `alabaster.sass` file and before the Sass's files you use to build your web.
+
+```sass
+@import 'route-to-file/alabaster/alabaster'
+@import 'route-to-file/alabaster/components/check-radio'
+@import 'header'
+```
+
+**Example:**
 
 	<label class="check-field">
 		<input class="check-field__input" type="checkbox">
@@ -581,6 +593,66 @@ $toggle-circle-size | 30px | Size of the status circle
 		<span class="field-toggle__container field-toggle__container_text">
 			<span class="field-toggle__circle"></span>
 		</span>
+	</label>
+
+#### Input file
+
+For create a input file import the file `file.sass` in the file that compile your Sass and be sure you call it after the `alabaster.sass` file and before the Sass's files you use to build your web.
+
+```sass
+@import 'route-to-file/alabaster/alabaster'
+@import 'route-to-file/alabaster/components/file'
+@import 'header'
+```
+
+Import  `file-field.js` in your js code.
+
+	<script src="route-to-file/alabaster/js/file-field.js"></script>
+
+Create a new js FileField object.
+
+##### JS parameters
+
+Name | Default | Description
+------ | ------- | -----------
+inputSelector | .js-input-file | Selector to input file
+labelSelector | .js-file-text | Selector for element with dinamic text
+textLabel | Seleccionar archivo | Initial text for input
+
+**Example:**
+
+	<label class="file-field">
+		<input type="file" class="js-input-file file-field__input">
+		<span class="js-file-text file-field__label">Seleccionar archivo</span>
+		<span class="file-field__icon">icon</span>
+	</label>
+
+```js
+new FileField();
+// or
+new FileField({
+	inputSelector: '.js-new-input-file-selector';
+	labelSelector: '.js-new-file-text-selector';
+	textLabel: 'New text input';
+});
+```
+
+##### Modifiers
+
+`.file-field_disabled` Input disabled style.
+
+	<label class="file-field file-field_disabled">
+		<input type="file" class="js-input-file file-field__input" disabled>
+		<span class="js-file-text file-field__label">Seleccionar archivo</span>
+		<span class="file-field__icon">icon</span>
+	</label>
+
+`.file-field_readonly` Input readonly style.
+
+	<label class="file-field file-field_readonly">
+		<input type="file" class="js-input-file file-field__input" disabled>
+		<span class="js-file-text file-field__label">Seleccionar archivo</span>
+		<span class="file-field__icon">icon</span>
 	</label>
 
 ### Icons
@@ -747,13 +819,14 @@ The `.off-screen` class hides elements in the screen.
 
 ### Text align
 
-The `.text-center` and `.text-right` classes changes the text align.
+The `.text-center`, `.text-right` and `.text-left` classes changes the text align.
 
 **Example:**
 
 	<div>
 		<p class="text-center">Some text aligned to the center</p>
 		<p class="text-right">Some text aligned to the right</p>
+		<p class="text-left">Some text aligned to the left</p>
 	</div>
 
 ### Flex
