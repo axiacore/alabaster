@@ -1,0 +1,64 @@
+.alert
+  background-color: $alert-background-color
+  margin: auto
+  max-width: $alert-max-width
+  position: relative
+
+  &__btn-close
+    @include position(absolute, #{dms-rem-mobile(.5)} #{dms-px-mobile(.5)} null null)
+    z-index: 5
+
+    @include breakpoint($tablet)
+      right: dms-px-tablet(.5)
+      top: dms-rem-tablet(.5)
+
+  &__content
+    padding: dms-rem-mobile(2 1 1)
+
+    @include breakpoint($tablet)
+      padding: dms-rem-tablet(1.5 1.5 1)
+
+  &__header
+    text-align: center
+
+    @include breakpoint($tablet)
+      align-items: center
+      display: flex
+      text-align: left
+
+  &__icon
+    flex-shrink: 0
+    margin-bottom: dms-rem-mobile(.5)
+
+    @include breakpoint($tablet)
+      margin-bottom: 0
+      margin-right: dms-px-tablet(.5)
+
+  &__title
+    width: 100%
+
+  &__text
+    margin-top: dms-rem-mobile(1)
+
+    @include breakpoint($tablet)
+      margin-top: dms-rem-tablet(1)
+
+  &__action
+    display: flex
+    justify-content: center
+    padding: dms-rem-mobile(.75 .25)
+
+    @include breakpoint($tablet)
+      justify-content: flex-end
+      padding: dms-rem-tablet(1 1.25)
+
+  &__btn
+    margin: dms-px-mobile(0 .25)
+    max-width: 150px
+    width: calc(50% - #{dms-px-mobile(.5)})
+
+    @include breakpoint($tablet)
+      margin: dms-px-tablet(0 .25)
+
+      &:last-child
+        margin-right: 0

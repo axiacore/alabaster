@@ -4,6 +4,7 @@
   background-color: $black
   border: 1px solid transparent
   border-radius: $icon-border-radius
+  color: $white
   display: inline-flex
   justify-items: center
 
@@ -49,9 +50,66 @@
         @include size($icon-svg-sm-tablet-size)
 
 
+  &_error
+    background-color: $icon-error-background-color
+    color: $icon-error-color
+
+    .icon__svg
+      fill: $icon-error-color
+
+  &_info
+    background-color: $icon-info-background-color
+    color: $icon-info-color
+
+    .icon__svg
+      fill: $icon-info-color
+
+  &_success
+    background-color: $icon-success-background-color
+    color: $icon-success-color
+
+    .icon__svg
+      fill: $icon-success-color
+
+  &_warning
+    background-color: $icon-warning-background-color
+    color: $icon-warning-color
+
+    .icon__svg
+      fill: $icon-warning-color
+
   &_outline
     background-color: transparent
     border-color: $black
+    color: $black
 
     .icon__svg
       fill: $black
+
+    &.icon_error
+      border-color: $icon-error-background-color
+      color: $icon-error-background-color
+
+      .icon__svg
+        fill: $icon-error-background-color
+
+    &.icon_info
+      border-color: $icon-info-background-color
+      color: $icon-info-background-color
+
+      .icon__svg
+        fill: $icon-info-background-color
+
+    &.icon_success
+      border-color: $icon-success-background-color
+      color: $icon-success-background-color
+
+      .icon__svg
+        fill: $icon-success-background-color
+
+    &.icon_warning
+      border-color: $icon-warning-background-color
+      color: $icon-warning-background-color
+
+      .icon__svg
+        fill: $icon-warning-background-color
