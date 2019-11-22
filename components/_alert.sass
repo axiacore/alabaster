@@ -5,12 +5,8 @@
   position: relative
 
   &__btn-close
-    @include position(absolute, #{dms-rem-mobile(.5)} #{dms-px-mobile(.5)} null null)
+    @include position(absolute, 15px 15px null null)
     z-index: 5
-
-    @include breakpoint($tablet)
-      right: dms-px-tablet(.5)
-      top: dms-rem-tablet(.5)
 
   &__content
     padding: dms-rem-mobile(2 1 1)
