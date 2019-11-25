@@ -1,0 +1,26 @@
+.outdated-browser
+  @include position(fixed, 0 null null 0)
+  background-color: $outdated-browser-background-color
+  color: $outdated-browser-text-color
+  padding: dms-rem-mobile(1)
+  text-align: center
+  width: 100%
+  z-index: 10000
+
+  @include breakpoint($tablet)
+    padding: dms-rem-tablet(1)
+
+  &__text
+    margin: dms-rem-mobile(0 auto .75)
+    max-width: 700px
+
+    @include breakpoint($tablet)
+      margin-bottom: dms-rem-tablet(.75)
+
+  &__btn
+    background-color: $outdated-browser-btn-background-color
+    color: $outdated-browser-btn-text-color
+
+    &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
+      background-color: $outdated-browser-btn-background-color-hover
+      color: $outdated-browser-btn-text-color-hover
