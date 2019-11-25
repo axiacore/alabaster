@@ -114,6 +114,62 @@
         @include size($icon-btn-svg-default-tablet-size)
 
 
+  &_error
+    background-color: $btn-error-background-color
+    color: $btn-error-color
+
+    &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
+      background-color: $btn-error-background-color-hover
+      color: $btn-error-color-hover
+
+      .btn__svg
+        fill: $btn-error-color-hover
+
+    .btn__svg
+      fill: $btn-error-color
+
+  &_info
+    background-color: $btn-info-background-color
+    color: $btn-info-color
+
+    &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
+      background-color: $btn-info-background-color-hover
+      color: $btn-info-color-hover
+
+      .btn__svg
+        fill: $btn-info-color-hover
+
+    .btn__svg
+      fill: $btn-info-color
+
+  &_success
+    background-color: $btn-success-background-color
+    color: $btn-success-color
+
+    &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
+      background-color: $btn-success-background-color-hover
+      color: $btn-success-color-hover
+
+      .btn__svg
+        fill: $btn-success-color-hover
+
+    .btn__svg
+      fill: $btn-success-color
+
+  &_warning
+    background-color: $btn-warning-background-color
+    color: $btn-warning-color
+
+    &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
+      background-color: $btn-warning-background-color-hover
+      color: $btn-warning-color-hover
+
+      .btn__svg
+        fill: $btn-warning-color-hover
+
+    .btn__svg
+      fill: $btn-warning-color
+
   &_outline
     background-color: transparent
     border-color: $black
@@ -128,6 +184,62 @@
 
     .btn__svg
       fill: $black
+
+    &.btn_error
+      border-color: $btn-error-background-color
+      color: $btn-error-background-color
+
+      &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
+        background-color: $btn-error-background-color
+        color: $btn-error-color
+
+        .btn__svg
+          fill: $btn-error-color
+
+      .btn__svg
+        fill: $btn-error-background-color
+
+    &.btn_info
+      border-color: $btn-info-background-color
+      color: $btn-info-background-color
+
+      &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
+        background-color: $btn-info-background-color
+        color: $btn-info-color
+
+        .btn__svg
+          fill: $btn-info-color
+
+      .btn__svg
+        fill: $btn-info-background-color
+
+    &.btn_success
+      border-color: $btn-success-background-color
+      color: $btn-success-background-color
+
+      &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
+        background-color: $btn-success-background-color
+        color: $btn-success-color
+
+        .btn__svg
+          fill: $btn-success-color
+
+      .btn__svg
+        fill: $btn-success-background-color
+
+    &.btn_warning
+      border-color: $btn-warning-background-color
+      color: $btn-warning-background-color
+
+      &:hover:not(:disabled) // sass-lint:disable-line force-pseudo-nesting
+        background-color: $btn-warning-background-color
+        color: $btn-warning-color
+
+        .btn__svg
+          fill: $btn-warning-color
+
+      .btn__svg
+        fill: $btn-warning-background-color
 
 .link
   background-color: transparent

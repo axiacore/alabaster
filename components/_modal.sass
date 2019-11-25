@@ -1,0 +1,23 @@
+.modal
+  @include position(fixed, 0)
+  align-items: center
+  background: $modal-background-color
+  display: flex
+  flex-direction: column
+  justify-content: center
+  overflow: hidden
+  padding: $gutter
+  z-index: 10000
+
+  @include breakpoint($tablet)
+    padding: $gutter-tablet
+
+  &-close
+    display: none
+
+  &-content
+    @include size(100%, auto)
+    background-color: $modal-content-background-color
+    max-width: $modal-content-max-width
+    overflow: auto
+    position: relative
