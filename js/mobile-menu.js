@@ -5,6 +5,7 @@ class MobileMenu {
         this.closeBtn = options.closeBtn;
         this.activeClass = options.activeClass;
         this.onOpen = options.onOpen || (() => { });
+        this.onClose = options.onClose || (() => { });
 
         this.onInit();
     }
@@ -21,6 +22,7 @@ class MobileMenu {
 
         $(that.closeBtn).on('click', () => {
             nav.removeClass(that.activeClass);
+            that.onClose();
             $(document.scrollingElement).css('overflow', 'auto');
         });
     }
