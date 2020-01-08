@@ -17,13 +17,13 @@ class MobileMenu {
         $(that.openBtn).on('click', () => {
             nav.addClass(that.activeClass);
             that.onOpen();
-            $(document.scrollingElement).css('overflow', 'hidden');
+            noScroll(true);
         });
 
         $(that.closeBtn).on('click', () => {
             nav.removeClass(that.activeClass);
             that.onClose();
-            $(document.scrollingElement).css('overflow', 'auto');
+            noScroll(false);
         });
     }
 }
