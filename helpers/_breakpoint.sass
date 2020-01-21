@@ -1,6 +1,10 @@
 // Used to load a media query
-// @param {Number} $media - Breakpoint
+// @param {Number} $media or {String} if you need a custom media query
 
 @mixin breakpoint($media)
-  @media only screen and (min-width: #{$media})
-    @content
+  @if type-of($media) == 'number'
+    @media only screen and (min-width: #{$media})
+      @content
+  @else
+    @media #{$media}
+      @content
