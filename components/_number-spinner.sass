@@ -2,7 +2,7 @@ $number-spinner-height: 40px !default
 $number-spinner-width: 94px !default
 
 .number-spinner
-  @include size(94px, $number-spinner-height)
+  @include size($number-spinner-width, $number-spinner-height)
   background-color: $white
   border: 1px solid $black
   border-radius: 20px
@@ -10,7 +10,6 @@ $number-spinner-width: 94px !default
   display: flex
   min-width: 94px
   overflow: hidden
-  width: $number-spinner-width
 
   &__input
     @include size(calc(100% - 70px), 100%)

@@ -62,13 +62,13 @@ class NumberSpinner {
         let val = parseInt(that.input.val(), 10);
 
         if (increase) {
-            if (that.maxVal) {
+            if (that.maxVal != undefined) {
                 that.val = val < that.maxVal ? (val + that.step) : that.maxVal;
             } else {
                 that.val = val + that.step;
             }
         } else {
-            if (that.minVal) {
+            if (that.minVal != undefined) {
                 that.val = val > that.minVal ? (val - that.step) : that.minVal;
             } else {
                 that.val = val - that.step;
