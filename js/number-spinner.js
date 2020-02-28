@@ -16,7 +16,7 @@ class NumberSpinner {
         this.minVal = undefined;
         this.step = 1;
         this.val = 0;
-        this.initEnded = options.initEnded || (() => { });
+        this.onReady = options.onReady || (() => { });
         this.changeEnded = options.changeEnded || (() => { });
         this.onMaxValue = options.onMaxValue || (() => { });
         this.onMinValue = options.onMinValue || (() => { });
@@ -57,7 +57,7 @@ class NumberSpinner {
             that.onChange(true);
         });
 
-        that.initEnded();
+        that.onReady();
     }
 
     onChange(increase) {
