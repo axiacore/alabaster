@@ -153,8 +153,8 @@ Flexbox grid to build layouts.
 
 Name | Default | Description
 ------ | ------- | -----------
-$gutter | 11.5px | Space between columns in mobile
-$gutter-tablet |11.5px | Space between columns in tablet and above
+$gutter | 20px | Space between columns in mobile
+$gutter-tablet | 20px | Space between columns in tablet and above
 $columns-number | 12 | Columns number for the grid
 $grid-background-color | rgba(black, .1) | Visual guide of columns grid (only develop)
 
@@ -186,12 +186,6 @@ Building a grid layout is simple:
 `.columns_no-gutter-y` Remove the space between columns in the y axis.
 
 	<div class="columns columns_no-gutter-y">
-		...
-	</div>
-
-`.columns_gutter-sm` Reduce the space between columns to half of the value $gutter / $gutter-tablet.
-
-	<div class="columns columns_gutter-sm">
 		...
 	</div>
 

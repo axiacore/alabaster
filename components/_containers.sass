@@ -1,29 +1,20 @@
 .container
   margin: 0 auto
+  max-width: $container-max-width
   padding: 0 $gutter
   width: 100%
 
   @include breakpoint($tablet)
-    max-width: #{ $container-max-width + ($gutter-tablet * 2) }
     padding: 0 $gutter-tablet
 
   &_xs
-    max-width: #{ $container-xs-max-width + ($gutter * 2) }
-
-    @include breakpoint($tablet)
-      max-width: #{ $container-xs-max-width + ($gutter-tablet * 2) }
+    max-width: $container-xs-max-width
 
   &_sm
-    max-width: #{ $container-sm-max-width + ($gutter * 2) }
-
-    @include breakpoint($tablet)
-      max-width: #{ $container-sm-max-width + ($gutter-tablet * 2) }
+    max-width: $container-sm-max-width
 
   &_md
-    max-width: #{ $container-md-max-width + ($gutter * 2) }
-
-    @include breakpoint($tablet)
-      max-width: #{ $container-md-max-width + ($gutter-tablet * 2) }
+    max-width: $container-md-max-width
 
 .wrapper-container
   background-color: $wrapper-background-color
