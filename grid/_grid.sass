@@ -1,45 +1,21 @@
 .columns
-  margin: 0 -#{$gutter}
+  margin: 0 -#{$half-gutter}
 
   @include breakpoint($tablet)
     display: flex
-    margin: 0 -#{$gutter-tablet}
+    margin: 0 -#{$half-gutter-tablet}
 
   &:first-child:not(.columns_no-gutter):not(.columns_no-gutter-y) // sass-lint:disable-line force-pseudo-nesting
-    margin-top: -#{$gutter}
+    margin-top: -#{$half-gutter}
 
     @include breakpoint($tablet)
-      margin-top: -#{$gutter-tablet}
+      margin-top: -#{$half-gutter-tablet}
 
   &:last-child:not(.columns_no-gutter):not(.columns_no-gutter-y) // sass-lint:disable-line force-pseudo-nesting
-    margin-bottom: -#{$gutter}
+    margin-bottom: -#{$half-gutter}
 
     @include breakpoint($tablet)
-      margin-bottom: -#{$gutter-tablet}
-
-  &_gutter-sm
-    margin: 0 -#{$half-gutter}
-
-    @include breakpoint($tablet)
-      margin: 0 -#{$half-gutter-tablet}
-
-    &:first-child:not(.columns_no-gutter):not(.columns_no-gutter-y) // sass-lint:disable-line force-pseudo-nesting
-      margin-top: -#{$half-gutter}
-
-      @include breakpoint($tablet)
-        margin-top: -#{$half-gutter-tablet}
-
-    &:last-child:not(.columns_no-gutter):not(.columns_no-gutter-y) // sass-lint:disable-line force-pseudo-nesting
-      margin-bottom: -#{$half-gutter}
-
-      @include breakpoint($tablet)
-        margin-bottom: -#{$half-gutter-tablet}
-
-    > .col
-      padding: $half-gutter
-
-      @include breakpoint($tablet)
-        padding: $half-gutter-tablet
+      margin-bottom: -#{$half-gutter-tablet}
 
   &_no-gutter
     margin: 0
@@ -83,16 +59,10 @@
     align-items: flex-end
 
   &_show-grid
-    background: repeating-linear-gradient(to right, transparent, transparent $gutter, $grid-background-color $gutter, $grid-background-color calc(#{$column-width} - #{$gutter}), transparent calc(#{$column-width} - #{$gutter}), transparent #{$column-width})
+    background: repeating-linear-gradient(to right, transparent, transparent $half-gutter, $grid-background-color $half-gutter, $grid-background-color calc(#{$column-width} - #{$half-gutter}), transparent calc(#{$column-width} - #{$half-gutter}), transparent #{$column-width})
 
     @include breakpoint($tablet)
-      background: repeating-linear-gradient(to right, transparent, transparent $gutter-tablet, $grid-background-color $gutter-tablet, $grid-background-color calc(#{$column-width} - #{$gutter-tablet}), transparent calc(#{$column-width} - #{$gutter-tablet}), transparent #{$column-width})
-
-    &.columns_gutter-sm
-      background: repeating-linear-gradient(to right, transparent, transparent $half-gutter, $grid-background-color $half-gutter, $grid-background-color calc(#{$column-width} - #{$half-gutter}), transparent calc(#{$column-width} - #{$half-gutter}), transparent #{$column-width})
-
-      @include breakpoint($tablet)
-        background: repeating-linear-gradient(to right, transparent, transparent $half-gutter-tablet, $grid-background-color $half-gutter-tablet, $grid-background-color calc(#{$column-width} - #{$half-gutter-tablet}), transparent calc(#{$column-width} - #{$half-gutter-tablet}), transparent #{$column-width})
+      background: repeating-linear-gradient(to right, transparent, transparent $half-gutter-tablet, $grid-background-color $half-gutter-tablet, $grid-background-color calc(#{$column-width} - #{$half-gutter-tablet}), transparent calc(#{$column-width} - #{$half-gutter-tablet}), transparent #{$column-width})
 
     &.columns_no-gutter,
     &.columns_no-gutter-x
@@ -103,10 +73,10 @@
   flex-basis: 0
   flex-grow: 1
   flex-shrink: 1
-  padding: $gutter
+  padding: $half-gutter
 
   @include breakpoint($tablet)
-    padding: $gutter-tablet
+    padding: $half-gutter-tablet
 
     @for $i from 1 through $columns-number
       &_#{$i}
