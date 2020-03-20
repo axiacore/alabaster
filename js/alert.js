@@ -19,19 +19,19 @@ $.fn.extend({
             afterContent() {
                 let that = this;
 
-                if (options.loadedCallback !== undefined) { options.loadedCallback(); }
+                if (options.loadedCallback !== undefined) { options.loadedCallback(that); }
 
                 that.$instance.find('.js-alert-btn-close').on('click', () => {
                     that.close();
                 });
 
                 that.$instance.find('.js-alert-btn-cancel').on('click', () => {
-                    if (options.cancelCallback !== undefined) { options.cancelCallback(); }
+                    if (options.cancelCallback !== undefined) { options.cancelCallback(that); }
                     that.close();
                 });
 
                 that.$instance.find('.js-alert-btn-done').on('click', () => {
-                    if (options.doneCallback !== undefined) { options.doneCallback(); }
+                    if (options.doneCallback !== undefined) { options.doneCallback(that); }
                     that.close();
                 });
             }
