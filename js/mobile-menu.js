@@ -1,29 +1,24 @@
-class MobileMenu {
-    constructor(options) {
-        this.mobileNav = options.mobileNav;
-        this.openBtn = options.openBtn;
-        this.closeBtn = options.closeBtn;
-        this.activeClass = options.activeClass;
-        this.onOpen = options.onOpen || (() => { });
-        this.onClose = options.onClose || (() => { });
+define(['jquery','noScroll'], function($, noScroll) {
+    return function(options) {
+        options.mobileNav;
+        options.openBtn;
+        options.closeBtn;
+        options.activeClass;
+        options.onOpen = options.onOpen || (() => { });
+        options.onClose = options.onClose || (() => { });
 
-        this.onInit();
-    }
+        let nav = $(options.mobileNav);
 
-    onInit() {
-        let that = this;
-        let nav = $(that.mobileNav);
-
-        $(that.openBtn).on('click', () => {
-            nav.addClass(that.activeClass);
-            that.onOpen();
+        $(options.openBtn).on('click', () => {
+            nav.addClass(options.activeClass);
+            options.onOpen();
             noScroll(true);
         });
 
-        $(that.closeBtn).on('click', () => {
-            nav.removeClass(that.activeClass);
-            that.onClose();
+        $(options.closeBtn).on('click', () => {
+            nav.removeClass(options.activeClass);
+            options.onClose();
             noScroll(false);
         });
-    }
-}
+    };
+});
