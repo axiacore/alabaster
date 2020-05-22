@@ -1,5 +1,5 @@
-define(['jquery'], function($) {
-    return function(fixed) {
+define(['jquery'], function ($) {
+    return function (fixed) {
         let scrollingElement = $(document.scrollingElement);
         let classScroll = 'no-scroll';
         if (fixed && scrollingElement.data('modal-scroll-top') === undefined) {

@@ -1,5 +1,5 @@
-define(['jquery','noScroll'], function($, noScroll) {
-    return function(options) {
+define(['jquery', 'noScroll'], function ($, noScroll) {
+    return function (options) {
         options.mobileNav;
         options.openBtn;
         options.closeBtn;
