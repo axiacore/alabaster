@@ -17,7 +17,7 @@ function loadBrowserMessage(options) {
     }).append(browserLink).appendTo('body');
 }
 
-function outdatedBrowser() {
+function ax3OutdatedBrowser() {
     var browserList = [
         {
             'name': 'Chrome',
@@ -66,6 +66,4 @@ function outdatedBrowser() {
     }
 }
 
-$(function () {
-    outdatedBrowser();
-});
+export default ax3OutdatedBrowser;

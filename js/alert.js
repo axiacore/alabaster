@@ -1,42 +1,46 @@
-define(['jquery', 'handlebars', 'featherlight'], function($, Handlebars) {
-    $.fn.extend({
-        showAlert(options) {
-            let template = Handlebars.compile(this.html());
-            let defaultOptions = {
-                type: 'info',
-                doneBtn: 'Aceptar',
-                cancelBtn: 'Cancelar',
-                cancelCallback: undefined,
-                doneCallback: undefined,
-                loadedCallback: undefined,
-            };
+import ax3NoScroll from './no-scroll.js';
 
-            $.featherlight({
-                html: template($.extend(defaultOptions, options)),
-                closeOnEsc: false,
-                closeTrigger: null,
-                namespace: 'modal',
-                variant: 'modal_alert',
-                afterContent() {
-                    let that = this;
+$.fn.extend({
+    showAlert(options) {
+        let template = Handlebars.compile(this.html());
+        let defaultOptions = {
+            type: 'info',
+            doneBtn: 'Aceptar',
+            cancelBtn: 'Cancelar',
+            cancelCallback: undefined,
+            doneCallback: undefined,
+            loadedCallback: undefined,
+        };
 
-                    if (options.loadedCallback !== undefined) { options.loadedCallback(that); }
+        $.featherlight({
+            html: template($.extend(defaultOptions, options)),
+            closeOnEsc: false,
+            closeTrigger: null,
+            namespace: 'modal',
+            variant: 'modal_alert',
+            afterContent() {
+                let that = this;
+                ax3NoScroll(true);
 
-                    that.$instance.find('.js-alert-btn-close').on('click', () => {
-                        that.close();
-                    });
+                if (options.loadedCallback !== undefined) { options.loadedCallback(that); }
 
-                    that.$instance.find('.js-alert-btn-cancel').on('click', () => {
-                        if (options.cancelCallback !== undefined) { options.cancelCallback(that); }
-                        that.close();
-                    });
+                that.$instance.find('.js-alert-btn-close').on('click', () => {
+                    that.close();
+                });
 
-                    that.$instance.find('.js-alert-btn-done').on('click', () => {
-                        if (options.doneCallback !== undefined) { options.doneCallback(that); }
-                        that.close();
-                    });
-                }
-            });
-        }
-    });
+                that.$instance.find('.js-alert-btn-cancel').on('click', () => {
+                    if (options.cancelCallback !== undefined) { options.cancelCallback(that); }
+                    else { that.close(); }
+                });
+
+                that.$instance.find('.js-alert-btn-done').on('click', () => {
+                    if (options.doneCallback !== undefined) { options.doneCallback(that); }
+                    else { that.close(); }
+                });
+            },
+            afterClose() {
+                ax3NoScroll(false);
+            }
+        });
+    }
 });
