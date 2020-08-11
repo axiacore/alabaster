@@ -1,24 +1,26 @@
-define(['jquery','noScroll'], function($, noScroll) {
-    return function(options) {
-        options.mobileNav;
-        options.openBtn;
-        options.closeBtn;
-        options.activeClass;
-        options.onOpen = options.onOpen || (() => { });
-        options.onClose = options.onClose || (() => { });
+import ax3NoScroll from './no-scroll.js';
 
-        let nav = $(options.mobileNav);
+function ax3MobileMenu(options) {
+    options.mobileNav;
+    options.openBtn;
+    options.closeBtn;
+    options.activeClass;
+    options.onOpen = options.onOpen || (() => { });
+    options.onClose = options.onClose || (() => { });
 
-        $(options.openBtn).on('click', () => {
-            nav.addClass(options.activeClass);
-            options.onOpen();
-            noScroll(true);
-        });
+    let nav = $(options.mobileNav);
 
-        $(options.closeBtn).on('click', () => {
-            nav.removeClass(options.activeClass);
-            options.onClose();
-            noScroll(false);
-        });
-    };
-});
+    $(options.openBtn).on('click', () => {
+        nav.addClass(options.activeClass);
+        options.onOpen();
+        ax3NoScroll(true);
+    });
+
+    $(options.closeBtn).on('click', () => {
+        nav.removeClass(options.activeClass);
+        options.onClose();
+        ax3NoScroll(false);
+    });
+};
+
+export default ax3MobileMenu;

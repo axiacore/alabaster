@@ -1,6 +1,6 @@
 {
   "name": "alabaster",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A lightweight and flexible tool set to build awesome web platform.",
   "main": "alabaster.sass",
   "repository": {
