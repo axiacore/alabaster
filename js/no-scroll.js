@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 function ax3NoScroll(fixed) {
     let scrollingElement = $(document.scrollingElement);
     let classScroll = 'no-scroll';

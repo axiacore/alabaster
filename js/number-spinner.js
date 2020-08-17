@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 $.fn.extend({
     numberSpinner(options) {
         $(this).each(function (index, element) {

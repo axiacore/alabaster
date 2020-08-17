@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 function ax3FileField(options) {
     options.inputSelector = options.inputSelector || '.js-input-file';
     options.labelSelector = options.labelSelector || '.js-file-text';

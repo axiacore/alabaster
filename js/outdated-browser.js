@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 function loadBrowserMessage(options) {
     var browserMessage = $('<p>', {
         class: 'outdated-browser__text',

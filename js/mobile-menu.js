@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 import ax3NoScroll from './no-scroll.js';
 
 function ax3MobileMenu(options) {
