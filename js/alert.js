@@ -3,7 +3,7 @@ import $ from 'jquery';
 import ax3NoScroll from './no-scroll.js';
 
 $.fn.extend({
-    showAlert(html) {
+    showAlert(html, options) {
         $.featherlight({
             html: html,
             closeOnEsc: false,
