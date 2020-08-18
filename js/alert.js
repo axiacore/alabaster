@@ -3,19 +3,9 @@ import $ from 'jquery';
 import ax3NoScroll from './no-scroll.js';
 
 $.fn.extend({
-    showAlert(options) {
-        let template = Handlebars.compile(this.html());
-        let defaultOptions = {
-            type: 'info',
-            doneBtn: 'Aceptar',
-            cancelBtn: 'Cancelar',
-            cancelCallback: undefined,
-            doneCallback: undefined,
-            loadedCallback: undefined,
-        };
-
+    showAlert(html) {
         $.featherlight({
-            html: template($.extend(defaultOptions, options)),
+            html: html,
             closeOnEsc: false,
             closeTrigger: null,
             namespace: 'modal',
