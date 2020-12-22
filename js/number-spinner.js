@@ -22,6 +22,7 @@ class NumberSpinner {
         this.changeEnded = options.changeEnded || (() => { });
         this.onMaxValue = options.onMaxValue || (() => { });
         this.onMinValue = options.onMinValue || (() => { });
+        this.onRangeValue = options.onRangeValue || (() => { });
 
         this.onInit();
     }
@@ -84,11 +85,21 @@ class NumberSpinner {
         that.changeEnded();
 
         if (that.val == that.maxVal) {
+            that.spinnerItem.find(that.btnPlusSelector).addClass('number-spinner__btn_max-value');
             that.onMaxValue();
+        } else {
+            that.spinnerItem.find(that.btnPlusSelector).removeClass('number-spinner__btn_max-value');
         }
 
         if (that.val == that.minVal) {
+            that.spinnerItem.find(that.btnMinusSelector).addClass('number-spinner__btn_min-value');
             that.onMinValue();
+        } else {
+            that.spinnerItem.find(that.btnMinusSelector).removeClass('number-spinner__btn_min-value');
+        }
+
+        if(that.val > that.minVal && that.val < that.maxVal) {
+            that.onRangeValue();
         }
     }
 }
