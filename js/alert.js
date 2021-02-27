@@ -3,7 +3,7 @@ import 'featherlight';
 
 import ax3NoScroll from './no-scroll.js';
 
-export default function showAlert(html, options = {}) {
+function ax3ShowAlert(html, options = {}) {
     $.featherlight({
         html: html,
         closeOnEsc: false,
@@ -35,3 +35,5 @@ export default function showAlert(html, options = {}) {
         }
     });
 };
+
+export default ax3ShowAlert;

@@ -1,0 +1,6 @@
+.no-scroll {
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}

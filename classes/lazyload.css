@@ -1,0 +1,11 @@
+.lazyload-loading {
+    background-color: var(--lazyload-container-background-color, #000);
+    position: relative;
+}
+.lazyload-loading__img {
+    opacity: 1;
+    transition: opacity .5s ease;
+}
+.lazyload-loading__img_hidden {
+    opacity: 0;
+}
