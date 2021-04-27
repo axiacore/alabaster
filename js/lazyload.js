@@ -2,7 +2,7 @@ import LazyLoad from 'vanilla-lazyload';
 
 function ax3Lazyload(options = {}) {
     options.image = options.image || '.js-lazyload-img';
-    options.styleClass = options.styleClass || 'lazyload-loading__img_hidden';
+    options.styleClass = options.styleClass || 'lazyload-hidden';
 
     return new LazyLoad({
         elements_selector: options.image,
