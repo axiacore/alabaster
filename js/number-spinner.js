@@ -1,105 +1,80 @@
-import $ from 'jquery';
-
-$.fn.extend({
-    numberSpinner(options) {
-        $(this).each(function (index, element) {
-            new NumberSpinner($.extend(options, { spinnerItem: $(element) }));
-        });
-    }
-});
-
-class NumberSpinner {
-    constructor(options) {
-        this.spinnerItem = options.spinnerItem;
+class Ax3NumberSpinner {
+    constructor(options = {}) {
+        this.spinnerSelector = options.spinnerSelector || '.js-number-spinner';
         this.btnMinusSelector = options.btnMinusSelector || '.js-number-spinner-btn-minus';
         this.btnPlusSelector = options.btnPlusSelector || '.js-number-spinner-btn-plus';
-        this.input = this.spinnerItem.find('input');
-        this.maxVal = undefined;
-        this.minVal = undefined;
-        this.step = 1;
-        this.val = 0;
         this.onReady = options.onReady || (() => { });
         this.changeEnded = options.changeEnded || (() => { });
         this.onMaxValue = options.onMaxValue || (() => { });
         this.onMinValue = options.onMinValue || (() => { });
         this.onRangeValue = options.onRangeValue || (() => { });
 
-        this.onInit();
+        this.init(this);
     }
 
-    onInit() {
-        let that = this;
-        let initVal = parseInt(that.input.val(), 10);
-        let maxVal = parseInt(that.input.attr('max'), 10);
-        let minVal = parseInt(that.input.attr('min'), 10);
-        let step = parseInt(that.input.attr('step'), 10);
+    init(that) {
+        document.querySelectorAll(that.spinnerSelector).forEach(spinner => {
+            let input = spinner.querySelector('input');
 
-        if (!isNaN(initVal)) {
-            that.val = initVal;
-        }
+            input.value = input.value == '' ? 0 : input.value;
 
-        if (!isNaN(maxVal)) {
-            that.maxVal = maxVal;
-        }
+            spinner.querySelector(that.btnMinusSelector).addEventListener('click', () => {
+                that.onChange(spinner, false);
+            });
 
-        if (!isNaN(minVal)) {
-            that.minVal = minVal;
-        }
+            spinner.querySelector(that.btnPlusSelector).addEventListener('click', () => {
+                that.onChange(spinner, true);
+            });
 
-        if (!isNaN(step)) {
-            that.step = step;
-        }
-
-        that.input.val(that.val);
-
-        that.spinnerItem.find(that.btnMinusSelector).on('click', function () {
-            that.onChange(false);
+            that.onReady(input, spinner, that);
         });
-
-        that.spinnerItem.find(that.btnPlusSelector).on('click', function () {
-            that.onChange(true);
-        });
-
-        that.onReady();
     }
 
-    onChange(increase) {
+    onChange(numberSpinner, increase) {
         let that = this;
-        let val = parseInt(that.input.val(), 10);
+        let input = numberSpinner.querySelector('input');
+        let inputValue = parseInt(input.value);
+        let maxValue = parseInt(input.getAttribute('max'));
+        let minValue = parseInt(input.getAttribute('min'));
+        let stepValue = input.getAttribute('step') ? parseInt(input.getAttribute('step')) : 1;
+        let newValue;
 
         if (increase) {
-            if (that.maxVal != undefined) {
-                that.val = val < that.maxVal ? (val + that.step) : that.maxVal;
+            if (maxValue) {
+                newValue = inputValue < maxValue ? inputValue + stepValue : maxValue;
             } else {
-                that.val = val + that.step;
+                newValue = inputValue + stepValue;
             }
         } else {
-            if (that.minVal != undefined) {
-                that.val = val > that.minVal ? (val - that.step) : that.minVal;
+            if (minValue) {
+                newValue = inputValue > minValue ? inputValue - stepValue : minValue;
             } else {
-                that.val = val - that.step;
+                newValue = inputValue - stepValue;
             }
         }
-        that.input.val(that.val);
 
-        that.changeEnded();
+        input.value = newValue;
 
-        if (that.val == that.maxVal) {
-            that.spinnerItem.find(that.btnPlusSelector).addClass('number-spinner__btn_max-value');
-            that.onMaxValue();
+        that.changeEnded(input, numberSpinner, that);
+
+        if (newValue == minValue) {
+            numberSpinner.classList.add('number-spinner-min-value');
+            that.onMinValue(input, numberSpinner, that);
         } else {
-            that.spinnerItem.find(that.btnPlusSelector).removeClass('number-spinner__btn_max-value');
+            numberSpinner.classList.remove('number-spinner-min-value');
         }
 
-        if (that.val == that.minVal) {
-            that.spinnerItem.find(that.btnMinusSelector).addClass('number-spinner__btn_min-value');
-            that.onMinValue();
+        if (newValue == maxValue) {
+            numberSpinner.classList.add('number-spinner-max-value');
+            that.onMaxValue(input, numberSpinner, that);
         } else {
-            that.spinnerItem.find(that.btnMinusSelector).removeClass('number-spinner__btn_min-value');
+            numberSpinner.classList.remove('number-spinner-max-value');
         }
 
-        if(that.val > that.minVal && that.val < that.maxVal) {
-            that.onRangeValue();
+        if (newValue > minValue && newValue < maxValue) {
+            that.onRangeValue(input, numberSpinner, that);
         }
     }
 }
+
+export default Ax3NumberSpinner;

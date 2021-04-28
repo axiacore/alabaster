@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import 'featherlight';
 
-import ax3NoScroll from './no-scroll.js';
+import ax3NoScroll from './no-scroll';
 
 function ax3ShowAlert(html, options = {}) {
     $.featherlight({
