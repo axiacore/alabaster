@@ -150,6 +150,9 @@ Name | Type | Default | Description
 ------ | ------ | ------ | -----------
 image | string | .js-lazyload-img | Img selector
 styleClass | string | lazyload-hidden | Class to remove once image is loaded
+loaded | function | --- | Function called when image is loaded.
+
+Note: Loaded event return as parameter the image object loaded.
 
 **Example:**
 
@@ -160,7 +163,10 @@ ax3Lazyload();
 
 ax3Lazyload({
     image: '.js-new-selector-img',
-    styleClass: 'new-class-lazyload'
+    styleClass: 'new-class-lazyload',
+    loaded: function(image) {
+        // Code here
+    }
 });
 ```
 

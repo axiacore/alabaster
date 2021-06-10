@@ -9,7 +9,7 @@ function ax3ShowAlert(html, options = {}) {
         closeOnEsc: false,
         closeTrigger: null,
         namespace: 'modal',
-        variant: 'modal_alert',
+        variant: 'modal-alert',
         afterContent() {
             let that = this;
             ax3NoScroll(true);
