@@ -40,13 +40,13 @@ class Ax3NumberSpinner {
         let newValue;
 
         if (increase) {
-            if (maxValue) {
+            if (!isNaN(maxValue)) {
                 newValue = inputValue < maxValue ? inputValue + stepValue : maxValue;
             } else {
                 newValue = inputValue + stepValue;
             }
         } else {
-            if (minValue) {
+            if (!isNaN(minValue)) {
                 newValue = inputValue > minValue ? inputValue - stepValue : minValue;
             } else {
                 newValue = inputValue - stepValue;
