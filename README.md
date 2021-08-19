@@ -79,22 +79,22 @@ ax3MobileMenu();
 // or 
 
 ax3MobileMenu({
-	mobileNav: '.js-new-selector',
-	openBtn: '.js-new-selector-btn-open',
-	closeBtn: '.js-new-selector-btn-close',
-	activeClass: 'new-class-active',
-	onOpen: function (btn, nav) {
-		// Code here
-	},
-	onClose: function (btn, nav) {
-		// Code here
-	}
+    mobileNav: '.js-new-selector',
+    openBtn: '.js-new-selector-btn-open',
+    closeBtn: '.js-new-selector-btn-close',
+    activeClass: 'new-class-active',
+    onOpen: function (btn, nav) {
+        // Code here
+    },
+    onClose: function (btn, nav) {
+        // Code here
+    }
 });
 ```
 
 ### Alert
 
-For show an alert import the `ax3NoScroll` function in your js code.
+For show an alert import the `ax3ShowAlert` function in your js code.
 
 ```js
 import ax3ShowAlert from 'alabaster/js/alert';
@@ -188,13 +188,13 @@ textLabel | string | Seleccionar archivo | Initial / empty text for input
 
 **Example:**
 
-	<label class="file-field">
-		<input type="file" class="js-input-file file-field-input">
-		<span class="js-input-file-text file-field-label">Seleccionar archivo</span>
-		<span class="file-field-icon">
+    <label class="file-field">
+        <input type="file" class="js-input-file file-field-input">
+        <span class="js-input-file-text file-field-label">Seleccionar archivo</span>
+        <span class="file-field-icon">
             <svg class="file-field-icon-svg">...</svg>
         </span>
-	</label>
+    </label>
 
 ```js
 ax3FileField();
@@ -202,9 +202,9 @@ ax3FileField();
 // or
 
 ax3FileField({
-	inputSelector: '.js-new-input-file-selector',
-	labelSelector: '.js-new-input-file-text-selector',
-	textLabel: 'New text input'
+    inputSelector: '.js-new-input-file-selector',
+    labelSelector: '.js-new-input-file-text-selector',
+    textLabel: 'New text input'
 });
 ```
 
@@ -236,7 +236,7 @@ Notes:
 
 **Example:**
 
-	<div class="js-number-spinner number-spinner">
+    <div class="js-number-spinner number-spinner">
         <button class="js-number-spinner-btn-minus number-spinner-btn-minus" type="button">
             <svg class="number-spinner-btn-svg">...</svg>
         </button>
@@ -252,9 +252,9 @@ new Ax3NumberSpinner();
 // or
 
 new Ax3NumberSpinner({
-	inputSelector: '.js-new-input-file-selector',
-	labelSelector: '.js-new-input-file-text-selector',
-	textLabel: 'New text input',
+    spinnerSelector: '.js-number-spinner',
+    btnMinusSelector: '.js-number-spinner-btn-minus',
+    btnPlusSelector: '.js-number-spinner-btn-plus',
     onReady: function(input, numberSpinner, instance) {
         // Code here
     },
