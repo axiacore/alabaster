@@ -1,16 +1,16 @@
 function ax3NoScroll(fixed) {
-    let scrollingElement = document.scrollingElement;
     let classScroll = 'no-scroll';
-    if (fixed && scrollingElement.dataset.modalScrollTop === undefined) {
-        let bodyOffset = scrollingElement.scrollTop;
-        scrollingElement.style.top = `${-bodyOffset}px`;
-        scrollingElement.dataset.modalScrollTop = bodyOffset;
-        scrollingElement.classList.add(classScroll);
+    let body = document.body;
+    if (fixed && body.dataset.modalScrollTop === undefined) {
+        let scrollY = window.scrollY;
+        body.style.top = `${-scrollY}px`;
+        body.dataset.modalScrollTop = scrollY;
+        body.classList.add(classScroll);
     } else if (!fixed) {
-        scrollingElement.style.top = '';
-        scrollingElement.classList.remove(classScroll);
-        scrollingElement.scrollTop = scrollingElement.dataset.modalScrollTop;
-        scrollingElement.removeAttribute('data-modal-scroll-top');
+        window.scrollTo(0, parseInt(body.dataset.modalScrollTop || '0'));
+        body.style.top = '';
+        body.removeAttribute('data-modal-scroll-top');
+        body.classList.remove(classScroll);
     }
 }
 
