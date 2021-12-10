@@ -1,3 +1,5 @@
+@use 'sass:math'
+
 // Used to pow a number
 // @param {Number} $number - Base number
 // @param {Number} $exponent - Exponent number
@@ -10,6 +12,6 @@
       $value: $value * $number //Multiply by $number if exponent less than zero
   @else if $exponent < 0
     @for $i from 1 through -$exponent
-      $value: $value / $number //Divide by $number if exponent less than zero
+      $value: math.div($value, $number) //Divide by $number if exponent less than zero
 
   @return $value

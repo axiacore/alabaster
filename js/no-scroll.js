@@ -1,13 +1,17 @@
-import $ from 'jquery';
-
 function ax3NoScroll(fixed) {
-    let scrollingElement = $(document.scrollingElement);
     let classScroll = 'no-scroll';
-    if (fixed && scrollingElement.data('modal-scroll-top') === undefined) {
-        let bodyOffset = scrollingElement.scrollTop();
-        scrollingElement.css('top', `${-bodyOffset}px`).data('modal-scroll-top', bodyOffset).addClass(classScroll);
+    let body = document.body;
+
+    if (fixed && body.dataset.modalScrollTop === undefined) {
+        const scrollY = window.scrollY;
+        body.style.top = `${-scrollY}px`;
+        body.dataset.modalScrollTop = scrollY;
+        body.classList.add(classScroll);
     } else if (!fixed) {
-        scrollingElement.removeClass(classScroll).css('top', '').scrollTop(scrollingElement.data('modal-scroll-top')).removeData('modal-scroll-top');
+        window.scrollTo(0, parseInt(body.dataset.modalScrollTop || '0'));
+        body.style.top = '';
+        body.removeAttribute('data-modal-scroll-top');
+        body.classList.remove(classScroll);
     }
 }
 

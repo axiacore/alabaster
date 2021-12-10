@@ -1,3 +1,5 @@
+@use 'sass:math'
+
 // Used to calculate the font size from a ratio
 // @param {Number} $value - Scale position
 // @param {Number} $ms-ratio - Ratio to grow and decrese
@@ -6,5 +8,5 @@
 // Require the _pow functions from utilities
 
 @function ms($value, $ms-ratio: $ratio, $ms-base: $base)
-  $size: _pow($ms-ratio, $value) * ($ms-base / $base)
+  $size: _pow($ms-ratio, $value) * math.div($ms-base, $base)
   @return #{ $size + 'rem' }

@@ -1,3 +1,7 @@
+@use 'sass:math'
+
+$select-right-pos: math.div($inputs-height, 2)
+
 select
   padding-right: $inputs-height
 
@@ -18,7 +22,7 @@ select
   position: relative
 
   &::after
-    @include position(absolute, 50% #{ $inputs-height / 2 } null null)
+    @include position(absolute, 50% #{ $select-right-pos } null null)
     @include size(10px)
     border-color: $select-arrow-color
     border-style: solid
