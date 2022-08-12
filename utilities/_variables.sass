@@ -1,3 +1,5 @@
+@use 'sass:math'
+
 $white: #fff !default
 $black: #000 !default
 
@@ -7,8 +9,8 @@ $base-font-size-tablet: 112.5 !default
 $line-height: 1.45 !default
 $line-height-tablet: 1.7 !default
 
-$base: 16 * ($base-font-size / 100) !default
-$base-tablet: 16 * ($base-font-size-tablet / 100) !default
+$base: 16 * math.div($base-font-size, 100) !default
+$base-tablet: 16 * math.div($base-font-size-tablet, 100) !default
 
 $leading: round($base * $line-height) !default
 $leading-tablet: $base-tablet * $line-height-tablet !default
@@ -19,8 +21,8 @@ $ratio: 1.5 !default
 // Container size
 $gutter: 20px !default
 $gutter-tablet: 20px !default
-$half-gutter: $gutter / 2 !default
-$half-gutter-tablet: $gutter-tablet / 2 !default
+$half-gutter: math.div($gutter, 2) !default
+$half-gutter-tablet: math.div($gutter-tablet, 2) !default
 
 $container-max-width: 1230px !default
 $container-xs-max-width: 370px !default
@@ -29,7 +31,7 @@ $container-md-max-width: 870px !default
 
 // Grid
 $columns-number: 12 !default
-$column-width: 100% / $columns-number !default
+$column-width: math.div(100%, $columns-number) !default
 $grid-background-color: rgba($black, .1) !default
 
 // Wrapper container
@@ -38,11 +40,11 @@ $wrapper-container-shadow: 0 0 30px -15px rgba(0, 0, 0, 1) !default
 $wrapper-background-color: $white !default
 
 // Media queries
-$mobile:        500px !default
-$tablet:        768px !default
-$desktop:       994px !default
-$desktop-md:    1200px !default
-$desktop-lg:    1400px !default
+$mobile: 500px !default
+$tablet: 768px !default
+$desktop: 994px !default
+$desktop-md: 1200px !default
+$desktop-lg: 1400px !default
 
 // Grid - Fonts extends for media queries
 $breakpoints-extends: (tablet: $tablet, desktop: $desktop, desktop-md: $desktop-md, desktop-lg: $desktop-lg) !default

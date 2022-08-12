@@ -1,9 +1,11 @@
+@use 'sass:math'
+
 $toggle-width: 80px !default
 $toggle-padding: 5px !default
 $toggle-border: 1px !default
 $toggle-circle-size: 30px !default
 $toggle-height: $toggle-circle-size + (($toggle-padding + $toggle-border) * 2) !default
-$toggle-border-radius: $toggle-height / 2 !default
+$toggle-border-radius: math-div($toggle-height, 2) !default
 
 .field-toggle
   @include size($toggle-width, $toggle-height)
@@ -26,7 +28,7 @@ $toggle-border-radius: $toggle-height / 2 !default
 
       .field-toggle__circle
         $inner-toggle-width: $toggle-width - (($toggle-padding + $toggle-border) * 2)
-        transform: translateX(#{ (($inner-toggle-width - $toggle-circle-size) / $toggle-circle-size) * 100%})
+        transform: translateX(#{ math.div(($inner-toggle-width - $toggle-circle-size), $toggle-circle-size) * 100%})
 
   &__container
     @include size(100%)
@@ -36,7 +38,7 @@ $toggle-border-radius: $toggle-height / 2 !default
     display: block
     padding: $toggle-padding
     position: relative
-    transition: border-color ($css-time / 2) $css-ease
+    transition: border-color math.div($css-time, 2) $css-ease
 
     &_text
       // sass-lint:disable-block nesting-depth
@@ -49,7 +51,7 @@ $toggle-border-radius: $toggle-height / 2 !default
         text-align: center
         text-transform: uppercase
         transform: translateY(-50%)
-        transition: color ($css-time / 2) $css-ease
+        transition: color math.div($css-time, 2) $css-ease
         width: $toggle-circle-size
         z-index: 2
 
@@ -68,4 +70,4 @@ $toggle-border-radius: $toggle-height / 2 !default
     background-color: $black
     border-radius: 50%
     display: block
-    transition: transform ($css-time / 2) $css-ease, background-color ($css-time / 2) $css-ease
+    transition: transform math.div($css-time, 2) $css-ease, background-color math.div($css-time, 2) $css-ease

@@ -5,6 +5,8 @@
 
 // Require the _pow functions from utilities
 
+@use "sass:math"
+
 @function ms($value, $ms-ratio: $ratio, $ms-base: $base)
-  $size: _pow($ms-ratio, $value) * ($ms-base / $base)
+  $size: _pow($ms-ratio, $value) * math.div($ms-base, $base)
   @return #{ $size + 'rem' }
